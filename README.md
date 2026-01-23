@@ -54,9 +54,49 @@ Le build statique est généré dans `dist/`.
 
 - Sans backend par défaut (`mailto: hello@clicom.ch`).
 - Option Formspree : définir `PUBLIC_FORMSPREE_ENDPOINT` dans l'environnement.
+- Anti-spam : champ honeypot côté front.
 
 ## Cookies
 
 - Aucun tracking par défaut.
 - Consentement analytics stocké en localStorage (`clicom-analytics-consent`).
 
+## Sécurité (headers recommandés)
+
+À configurer côté hébergeur (Hostinger/Apache/Nginx) :
+
+- `Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self';`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+- `X-Content-Type-Options: nosniff`
+- `X-Frame-Options: SAMEORIGIN`
+- `Permissions-Policy: geolocation=(), microphone=(), camera=()`
+
+> Adaptez la CSP si vous ajoutez des services tiers.
+
+## Checklist finale (avant mise en ligne)
+
+### Performance
+- [ ] Lighthouse Performance ≥ 90
+- [ ] Core Web Vitals OK (LCP, CLS, INP)
+- [ ] Images optimisées et dimensions fixées
+
+### SEO
+- [ ] Titles & meta descriptions uniques
+- [ ] JSON-LD valide (Organization, Breadcrumbs, Article)
+- [ ] Sitemap + robots.txt accessibles
+
+### Accessibilité (WCAG 2.2)
+- [ ] Navigation clavier complète
+- [ ] Focus visible sur tous les éléments interactifs
+- [ ] Contraste suffisant
+- [ ] Formulaire avec labels explicites
+
+### Conformité Suisse (nLPD + cookies)
+- [ ] Politique de confidentialité claire
+- [ ] Bannière cookies sans dark pattern
+- [ ] Consentement analytics optionnel et stocké
+
+### Déploiement Hostinger
+- [ ] `npm run build` OK
+- [ ] Upload du dossier `dist/`
+- [ ] Vérification 404 + pages légales
