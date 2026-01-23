@@ -8,7 +8,7 @@ module.exports = {
         ink: "#111111",
       },
       fontFamily: {
-        sans: ["Inter", "Arial", "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
+        sans: ["system-ui", "-apple-system", "Segoe UI", "Arial", "sans-serif"],
       },
       boxShadow: {
         soft: "0 14px 30px rgba(17, 17, 17, 0.08)",
