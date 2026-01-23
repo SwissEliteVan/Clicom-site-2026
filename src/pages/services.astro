@@ -1,0 +1,115 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import CTAButton from "../components/CTAButton.astro";
+
+const services = [
+  {
+    title: "Site vitrine ultra-performant",
+    benefits: "Améliore la crédibilité, le SEO et la vitesse pour convertir plus vite.",
+    deliverables: [
+      "Architecture claire et scalable",
+      "Optimisation Core Web Vitals",
+      "Pages stratégiques + CTA",
+    ],
+    process: "Atelier de cadrage → wireframe → design → intégration → mise en ligne.",
+    timeline: "Délais ajustés selon le volume de pages et vos validations.",
+  },
+  {
+    title: "Landing pages conversion",
+    benefits: "Augmente les demandes entrantes grâce à un message focalisé.",
+    deliverables: ["Message unique", "Preuves sociales", "Tracking léger"],
+    process: "Analyse offre → copywriting → maquette → itérations rapides.",
+    timeline: "Mise en ligne rapide après validation du contenu.",
+  },
+  {
+    title: "SEO local",
+    benefits: "Renforce la visibilité locale sur Google et Maps.",
+    deliverables: [
+      "Optimisation Google Business Profile",
+      "Plan éditorial local",
+      "Pages locales optimisées",
+    ],
+    process: "Audit → optimisation → contenu → suivi mensuel.",
+    timeline: "Travail continu, premiers signaux visibles en quelques semaines.",
+  },
+  {
+    title: "Publicité Meta/Google",
+    benefits: "Des campagnes cadrées, avec un budget maîtrisé et des leads ciblés.",
+    deliverables: ["Audit compte", "Structure campagnes", "Optimisation hebdo"],
+    process: "Cadrage objectifs → paramétrage → optimisation.",
+    timeline: "Démarrage rapide, ajustements continus selon performance.",
+  },
+  {
+    title: "Automatisation & CRM Lite",
+    benefits: "Réduit la saisie manuelle et accélère le suivi commercial.",
+    deliverables: ["Formulaires connectés", "Automations simples", "Pipeline léger"],
+    process: "Cartographie → scénarios → intégration → tests.",
+    timeline: "Mise en place progressive selon complexité.",
+  },
+  {
+    title: "Contenu & branding",
+    benefits: "Clarifie votre positionnement et augmente la conversion.",
+    deliverables: ["Copywriting", "Ton de marque", "Guidelines"],
+    process: "Atelier identité → rédaction → ajustements.",
+    timeline: "Livraison par itérations courtes.",
+  },
+];
+---
+<BaseLayout
+  title="Services | Clic COM"
+  description="Sites rapides, SEO local, publicités et automatisations pour convertir en Suisse."
+  breadcrumbs={[{ name: "Accueil", item: "/" }, { name: "Services", item: "/services/" }]}
+>
+  <Navbar current="/services/" />
+  <main class="mx-auto max-w-6xl px-6 py-16">
+    <div class="space-y-4">
+      <h1 class="text-4xl font-semibold text-ink">Services</h1>
+      <p class="text-lg text-black/70">
+        Des prestations ciblées pour vendre plus vite, avec une exécution rapide et
+        mesurable.
+      </p>
+    </div>
+
+    <div class="mt-10 grid gap-6">
+      {services.map((service) => (
+        <section class="rounded-3xl border border-black/10 bg-white p-6 shadow-soft">
+          <h2 class="text-2xl font-semibold text-ink">{service.title}</h2>
+          <p class="mt-2 text-black/70">{service.benefits}</p>
+          <div class="mt-4 grid gap-4 md:grid-cols-3">
+            <div>
+              <p class="text-sm font-semibold">Livrables</p>
+              <ul class="mt-2 space-y-1 text-sm text-black/70">
+                {service.deliverables.map((deliverable) => (
+                  <li>• {deliverable}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p class="text-sm font-semibold">Process</p>
+              <p class="mt-2 text-sm text-black/70">{service.process}</p>
+            </div>
+            <div>
+              <p class="text-sm font-semibold">Délais indicatifs</p>
+              <p class="mt-2 text-sm text-black/70">{service.timeline}</p>
+            </div>
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <div class="mt-12 flex flex-wrap items-center justify-between gap-4 rounded-3xl border border-black/10 bg-black/5 p-8">
+      <div>
+        <p class="text-xl font-semibold text-ink">Besoin d'un plan clair ?</p>
+        <p class="text-sm text-black/70">
+          Décrivez votre contexte, nous revenons avec un plan d'action concret.
+        </p>
+      </div>
+      <CTAButton href="/contact/" label="Demander un devis">
+        Demander un devis
+      </CTAButton>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

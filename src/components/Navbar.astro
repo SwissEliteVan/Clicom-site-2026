@@ -1,0 +1,51 @@
+---
+import { navigation, locales, site } from "../lib/site";
+const { current } = Astro.props;
+---
+<header class="sticky top-0 z-40 border-b border-black/10 bg-white/95 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="/" class="text-lg font-semibold text-ink">
+      <span class="text-accent">●</span> {site.name}
+    </a>
+    <nav class="hidden gap-6 text-sm font-medium lg:flex" aria-label="Navigation principale">
+      {navigation.map((item) => (
+        <a
+          href={item.href}
+          class={`focus-ring transition ${current === item.href ? "text-accent" : "text-ink hover:text-accent"}`}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+    <div class="hidden items-center gap-2 lg:flex">
+      {locales.map((locale) => (
+        <a
+          class="focus-ring rounded-full border border-black/10 px-3 py-1 text-xs"
+          href={locale.href}
+          aria-label={`Version ${locale.label}`}
+        >
+          {locale.label}
+        </a>
+      ))}
+    </div>
+    <a
+      href="/contact/"
+      class="focus-ring rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white lg:hidden"
+      aria-label="Demander un devis"
+    >
+      Devis
+    </a>
+  </div>
+  <div class="border-t border-black/10 lg:hidden">
+    <div class="mx-auto flex max-w-6xl flex-wrap gap-4 px-6 py-3 text-sm">
+      {navigation.map((item) => (
+        <a
+          href={item.href}
+          class={`focus-ring ${current === item.href ? "text-accent" : "text-ink"}`}
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</header>

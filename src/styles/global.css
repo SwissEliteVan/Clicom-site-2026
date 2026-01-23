@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  font-family: theme("fontFamily.sans");
+  color: #111111;
+  background-color: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: #5B2EFF;
+  color: #ffffff;
+}
+
+.focus-ring:focus-visible {
+  outline: 3px solid #5B2EFF;
+  outline-offset: 3px;
+}
