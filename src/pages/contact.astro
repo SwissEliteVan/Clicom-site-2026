@@ -30,72 +30,112 @@ const formEncType = formEndpoint ? "application/x-www-form-urlencoded" : "text/p
         action={formAction}
         method={formMethod}
         enctype={formEncType}
+        aria-describedby="contact-note"
       >
-        <div class="grid gap-4 md:grid-cols-2">
-          <label class="text-sm font-semibold">
-            Nom
+        <p id="contact-note" class="text-xs text-black/60">
+          Les champs marqués * sont obligatoires. Vos données sont traitées selon notre
+          <a class="text-accent underline" href="/politique-confidentialite/"
+            >politique de confidentialité</a
+          >.
+        </p>
+        <div class="mt-6 grid gap-4 md:grid-cols-2">
+          <div class="space-y-2">
+            <label class="text-sm font-semibold" for="contact-nom">
+              Nom *
+            </label>
             <input
-              class="mt-2 w-full rounded-xl border border-black/20 px-4 py-2"
+              id="contact-nom"
+              class="focus-ring w-full rounded-xl border border-black/20 px-4 py-2"
               type="text"
               name="nom"
+              autocomplete="name"
               required
             />
-          </label>
-          <label class="text-sm font-semibold">
-            Email
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-semibold" for="contact-email">
+              Email *
+            </label>
             <input
-              class="mt-2 w-full rounded-xl border border-black/20 px-4 py-2"
+              id="contact-email"
+              class="focus-ring w-full rounded-xl border border-black/20 px-4 py-2"
               type="email"
               name="email"
+              autocomplete="email"
               required
             />
-          </label>
-          <label class="text-sm font-semibold">
-            Téléphone (CH)
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-semibold" for="contact-telephone">
+              Téléphone (CH) *
+            </label>
             <input
-              class="mt-2 w-full rounded-xl border border-black/20 px-4 py-2"
+              id="contact-telephone"
+              class="focus-ring w-full rounded-xl border border-black/20 px-4 py-2"
               type="tel"
               name="telephone"
-              pattern="[+0-9\s]{6,}"
+              pattern="[+0-9\\s]{6,}"
+              autocomplete="tel"
               required
             />
-          </label>
-          <label class="text-sm font-semibold">
-            Entreprise
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-semibold" for="contact-entreprise">
+              Entreprise
+            </label>
             <input
-              class="mt-2 w-full rounded-xl border border-black/20 px-4 py-2"
+              id="contact-entreprise"
+              class="focus-ring w-full rounded-xl border border-black/20 px-4 py-2"
               type="text"
               name="entreprise"
+              autocomplete="organization"
             />
-          </label>
+          </div>
         </div>
-        <label class="mt-4 block text-sm font-semibold">
+        <label class="mt-4 block text-sm font-semibold" for="contact-budget">
           Budget estimatif
-          <select
-            class="mt-2 w-full rounded-xl border border-black/20 px-4 py-2"
-            name="budget"
-            required
-          >
-            <option value="">Sélectionner</option>
-            <option value="moins-5k">Moins de 5k CHF</option>
-            <option value="5k-15k">5k – 15k CHF</option>
-            <option value="15k-30k">15k – 30k CHF</option>
-            <option value="30k-plus">30k+ CHF</option>
-          </select>
         </label>
-        <label class="mt-4 block text-sm font-semibold">
-          Message
-          <textarea
-            class="mt-2 min-h-[160px] w-full rounded-xl border border-black/20 px-4 py-2"
-            name="message"
-            required
-          ></textarea>
+        <select
+          id="contact-budget"
+          class="focus-ring mt-2 w-full rounded-xl border border-black/20 px-4 py-2"
+          name="budget"
+          required
+        >
+          <option value="">Sélectionner</option>
+          <option value="moins-5k">Moins de 5k CHF</option>
+          <option value="5k-15k">5k – 15k CHF</option>
+          <option value="15k-30k">15k – 30k CHF</option>
+          <option value="30k-plus">30k+ CHF</option>
+        </select>
+        <label class="mt-4 block text-sm font-semibold" for="contact-message">
+          Message *
         </label>
-        <p class="mt-4 text-xs text-black/60">
+        <textarea
+          id="contact-message"
+          class="focus-ring mt-2 min-h-[160px] w-full rounded-xl border border-black/20 px-4 py-2"
+          name="message"
+          required
+        ></textarea>
+        <div class="mt-4 rounded-2xl border border-black/10 bg-black/5 p-3 text-xs text-black/70">
           {formEndpoint
             ? "Formulaire relié à un endpoint sécurisé."
             : "Le formulaire utilise un email direct (mailto). Vous pouvez aussi écrire à hello@clicom.ch."}
-        </p>
+          <p class="mt-2">
+            En soumettant ce formulaire, vous acceptez la politique de confidentialité.
+          </p>
+        </div>
+        <label class="sr-only" for="contact-website">
+          Ne pas remplir ce champ
+        </label>
+        <input
+          id="contact-website"
+          class="hidden"
+          type="text"
+          name="website"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
+        />
         <button
           class="focus-ring mt-6 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white"
           type="submit"
