@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import CTAButton from "../../components/CTAButton.astro";
+---
+<BaseLayout
+  title="Clic COM | Marketing, das verkauft"
+  description="Minimale deutsche Version. Voller Inhalt auf Französisch verfügbar."
+  lang="de"
+  breadcrumbs={[{ name: "Start", item: "/de/" }]}
+>
+  <Navbar current="/de/" />
+  <main class="mx-auto max-w-4xl px-6 py-16">
+    <h1 class="text-4xl font-semibold text-ink">Marketing, das verkauft (nicht nur glänzt).</h1>
+    <p class="mt-4 text-lg text-black/70">
+      Dies ist eine minimale deutsche Version. Voller Inhalt ist auf Französisch verfügbar.
+    </p>
+    <div class="mt-6">
+      <CTAButton href="/contact/" label="Kontakt aufnehmen">
+        Kontakt aufnehmen
+      </CTAButton>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,23 @@
+export const site = {
+  name: "Clic COM",
+  slogan: "Le marketing qui fait vendre (pas juste briller).",
+  url: "https://clicom.ch",
+  email: "hello@clicom.ch",
+  phone: "+41 78 823 89 50",
+  accent: "#5B2EFF",
+};
+
+export const navigation = [
+  { label: "Accueil", href: "/" },
+  { label: "Services", href: "/services/" },
+  { label: "Réalisations", href: "/realisations/" },
+  { label: "À propos", href: "/apropos/" },
+  { label: "Blog", href: "/blog/" },
+  { label: "Contact", href: "/contact/" },
+];
+
+export const locales = [
+  { label: "FR", href: "/" },
+  { label: "EN", href: "/en/" },
+  { label: "DE", href: "/de/" },
+];

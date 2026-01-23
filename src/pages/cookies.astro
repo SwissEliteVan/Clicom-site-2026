@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+---
+<BaseLayout
+  title="Cookies | Clic COM"
+  description="Informations sur l'utilisation des cookies et des préférences analytics."
+  breadcrumbs={[{ name: "Accueil", item: "/" }, { name: "Cookies", item: "/cookies/" }]}
+>
+  <Navbar current="/cookies/" />
+  <main class="mx-auto max-w-4xl px-6 py-16">
+    <h1 class="text-4xl font-semibold text-ink">Cookies</h1>
+    <div class="mt-6 space-y-4 text-sm text-black/70">
+      <p>
+        Ce site ne dépose aucun cookie de suivi par défaut. Vous pouvez activer les
+        analytics via la bannière pour aider à améliorer la performance.
+      </p>
+      <p>
+        Si l'analytics est activé, un identifiant anonymisé peut être stocké localement
+        afin de mesurer le trafic global. Aucun suivi publicitaire n'est utilisé.
+      </p>
+      <p>
+        Vous pouvez modifier votre choix en effaçant le stockage local de votre navigateur
+        (clé : <code>clicom-analytics-consent</code>).
+      </p>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

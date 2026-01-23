@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../lib/site";
+---
+<BaseLayout
+  title="Mentions légales | Clic COM"
+  description="Mentions légales de l'agence Clic COM en Suisse."
+  breadcrumbs={[
+    { name: "Accueil", item: "/" },
+    { name: "Mentions légales", item: "/mentions-legales/" },
+  ]}
+>
+  <Navbar current="/mentions-legales/" />
+  <main class="mx-auto max-w-4xl px-6 py-16">
+    <h1 class="text-4xl font-semibold text-ink">Mentions légales</h1>
+    <section class="mt-6 space-y-4 text-sm text-black/70">
+      <p><strong>Éditeur :</strong> {site.name}</p>
+      <p><strong>Activité :</strong> Agence marketing & web orientée résultats.</p>
+      <p><strong>Email :</strong> <a class="text-accent underline" href={`mailto:${site.email}`}>{site.email}</a></p>
+      <p><strong>Téléphone :</strong> <a class="text-accent underline" href={`tel:${site.phone.replace(/\s+/g, "")}`}>{site.phone}</a></p>
+      <p><strong>Pays :</strong> Suisse</p>
+      <p>
+        Aucun numéro d'IDE/TVA ou adresse postale n'est publié à ce stade.
+      </p>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

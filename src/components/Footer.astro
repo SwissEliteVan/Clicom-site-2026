@@ -1,0 +1,36 @@
+---
+import { site } from "../lib/site";
+---
+<footer class="border-t border-black/10 bg-white">
+  <div class="mx-auto grid max-w-6xl gap-8 px-6 py-12 lg:grid-cols-[2fr,1fr,1fr]">
+    <div class="space-y-3">
+      <p class="text-lg font-semibold text-ink">{site.name}</p>
+      <p class="text-sm text-black/70">{site.slogan}</p>
+      <div class="text-sm text-black/70">
+        <p>Email : <a class="text-accent underline" href={`mailto:${site.email}`}>{site.email}</a></p>
+        <p>Téléphone : <a class="text-accent underline" href={`tel:${site.phone.replace(/\s+/g, "")}`}>{site.phone}</a></p>
+        <p>Site : <a class="text-accent underline" href={site.url}>{site.url}</a></p>
+      </div>
+    </div>
+    <div class="space-y-2 text-sm">
+      <p class="font-semibold">Liens utiles</p>
+      <ul class="space-y-1">
+        <li><a class="focus-ring hover:text-accent" href="/services/">Services</a></li>
+        <li><a class="focus-ring hover:text-accent" href="/realisations/">Réalisations</a></li>
+        <li><a class="focus-ring hover:text-accent" href="/blog/">Blog</a></li>
+        <li><a class="focus-ring hover:text-accent" href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+    <div class="space-y-2 text-sm">
+      <p class="font-semibold">Légal</p>
+      <ul class="space-y-1">
+        <li><a class="focus-ring hover:text-accent" href="/mentions-legales/">Mentions légales</a></li>
+        <li><a class="focus-ring hover:text-accent" href="/politique-confidentialite/">Politique de confidentialité</a></li>
+        <li><a class="focus-ring hover:text-accent" href="/cookies/">Cookies</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-black/10 px-6 py-4 text-center text-xs text-black/60">
+    © {new Date().getFullYear()} {site.name}. Tous droits réservés.
+  </div>
+</footer>
