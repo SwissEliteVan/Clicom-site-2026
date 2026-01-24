@@ -1,7 +1,7 @@
 /* empty css                                   */
 import { c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_PoaPgSBg.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout, a as $$Navbar, b as $$Footer } from '../chunks/Footer_BtfnHVVJ.mjs';
+import { $ as $$BaseLayout, a as $$Navbar, b as $$Footer } from '../chunks/Footer_WL_g8g0y.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Cookies = createComponent(($$result, $$props, $$slots) => {
@@ -15,9 +15,9 @@ Si l'analytics est activé, un identifiant anonymisé peut être stocké localem
 Vous pouvez modifier votre choix en effaçant le stockage local de votre navigateur
         (clé : <code>clicom-analytics-consent</code>).
 </p> </div> </main> ${renderComponent($$result2, "Footer", $$Footer, {})} ` })}`;
-}, "C:/Git/Nat 2026/Clicom-site-2026/src/pages/cookies.astro", void 0);
+}, "C:/Git/Clicom-site-2026/src/pages/cookies.astro", void 0);
 
-const $$file = "C:/Git/Nat 2026/Clicom-site-2026/src/pages/cookies.astro";
+const $$file = "C:/Git/Clicom-site-2026/src/pages/cookies.astro";
 const $$url = "/cookies";
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({

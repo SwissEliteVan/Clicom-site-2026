@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./seo-local-suisse_DPuxLNik.mjs');
+						return import('./seo-local-suisse_CyBaqHMC.mjs');
 					}
 					const collectedLinks = [];
 					const collectedStyles = [];

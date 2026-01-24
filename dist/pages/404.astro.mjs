@@ -1,8 +1,8 @@
 /* empty css                                   */
 import { c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_PoaPgSBg.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout, a as $$Navbar, b as $$Footer } from '../chunks/Footer_BEGMSiPb.mjs';
-import { $ as $$CTAButton } from '../chunks/CTAButton_D0PwtIpl.mjs';
+import { $ as $$BaseLayout, a as $$Navbar, b as $$Footer } from '../chunks/Footer_WL_g8g0y.mjs';
+import { $ as $$CTAButton } from '../chunks/CTAButton_BQd-S80j.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$404 = createComponent(($$result, $$props, $$slots) => {
@@ -14,9 +14,9 @@ Retour à l'accueil
 ` })} ${renderComponent($$result2, "CTAButton", $$CTAButton, { "href": "/contact/", "variant": "secondary", "label": "Contact" }, { "default": ($$result3) => renderTemplate`
 Contact
 ` })} </div> </main> ${renderComponent($$result2, "Footer", $$Footer, {})} ` })}`;
-}, "C:/Git/Nat 2026/Clicom-site-2026/src/pages/404.astro", void 0);
+}, "C:/Git/Clicom-site-2026/src/pages/404.astro", void 0);
 
-const $$file = "C:/Git/Nat 2026/Clicom-site-2026/src/pages/404.astro";
+const $$file = "C:/Git/Clicom-site-2026/src/pages/404.astro";
 const $$url = "/404";
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({

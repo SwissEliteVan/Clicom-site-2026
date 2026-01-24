@@ -1,8 +1,8 @@
 /* empty css                                   */
 import { c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_PoaPgSBg.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout, a as $$Navbar, b as $$Footer } from '../chunks/Footer_BtfnHVVJ.mjs';
-import { $ as $$CTAButton } from '../chunks/CTAButton_D0PwtIpl.mjs';
+import { $ as $$BaseLayout, a as $$Navbar, b as $$Footer } from '../chunks/Footer_WL_g8g0y.mjs';
+import { $ as $$CTAButton } from '../chunks/CTAButton_BQd-S80j.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Services = createComponent(($$result, $$props, $$slots) => {
@@ -66,9 +66,9 @@ Décrivez votre contexte, nous revenons avec un plan d'action concret.
 </p> </div> ${renderComponent($$result2, "CTAButton", $$CTAButton, { "href": "/contact/", "label": "Demander un devis" }, { "default": ($$result3) => renderTemplate`
 Demander un devis
 ` })} </div> </main> ${renderComponent($$result2, "Footer", $$Footer, {})} ` })}`;
-}, "C:/Git/Nat 2026/Clicom-site-2026/src/pages/services.astro", void 0);
+}, "C:/Git/Clicom-site-2026/src/pages/services.astro", void 0);
 
-const $$file = "C:/Git/Nat 2026/Clicom-site-2026/src/pages/services.astro";
+const $$file = "C:/Git/Clicom-site-2026/src/pages/services.astro";
 const $$url = "/services";
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({

@@ -1,4 +1,4 @@
-import { g as getCollection } from '../chunks/_astro_content_CgjqgJ-x.mjs';
+import { g as getCollection } from '../chunks/_astro_content_CBLHvkGu.mjs';
 import { r as realisations } from '../chunks/realisations_o6tNqV5G.mjs';
 import { s as site } from '../chunks/site_Csd5TUrh.mjs';
 export { renderers } from '../renderers.mjs';

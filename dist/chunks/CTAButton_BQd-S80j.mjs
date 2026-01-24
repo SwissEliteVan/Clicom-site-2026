@@ -13,6 +13,6 @@ const $$CTAButton = createComponent(($$result, $$props, $$slots) => {
     secondary: "border border-ink text-ink hover:border-accent hover:text-accent"
   };
   return renderTemplate`${maybeRenderHead()}<a${addAttribute(href, "href")}${addAttribute(`${base} ${styles[variant]}`, "class")}${addAttribute(label, "aria-label")}> ${renderSlot($$result, $$slots["default"])} </a>`;
-}, "C:/Git/Nat 2026/Clicom-site-2026/src/components/CTAButton.astro", void 0);
+}, "C:/Git/Clicom-site-2026/src/components/CTAButton.astro", void 0);
 
 export { $$CTAButton as $ };

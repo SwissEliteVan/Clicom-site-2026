@@ -5,7 +5,7 @@ const id = "vitesse-site-fait-vendre.md";
 						const data = {title:"Pourquoi la vitesse d’un site fait vendre",description:"Comprendre l'impact direct de la vitesse sur la conversion et le SEO.",pubDate:"2024-01-10",author:"Clic COM"};
 						const _internal = {
 							type: 'content',
-							filePath: "C:/Git/Nat 2026/Clicom-site-2026/src/content/blog/vitesse-site-fait-vendre.md",
+							filePath: "C:/Git/Clicom-site-2026/src/content/blog/vitesse-site-fait-vendre.md",
 							rawData: undefined,
 						};
 

@@ -5,7 +5,7 @@ const id = "seo-local-suisse.md";
 						const data = {title:"SEO local en Suisse : ce qui marche vraiment",description:"Les actions concrètes qui améliorent votre visibilité locale sans promesses irréalistes.",pubDate:"2024-02-05",author:"Clic COM"};
 						const _internal = {
 							type: 'content',
-							filePath: "C:/Git/Nat 2026/Clicom-site-2026/src/content/blog/seo-local-suisse.md",
+							filePath: "C:/Git/Clicom-site-2026/src/content/blog/seo-local-suisse.md",
 							rawData: undefined,
 						};
 

@@ -83,7 +83,7 @@ Refuser
           banner?.classList.add("hidden");
         });
     <\/script> </body> </html>`])), addAttribute(lang, "lang"), title, addAttribute(description, "content"), addAttribute(canonical, "href"), addAttribute(title, "content"), addAttribute(description, "content"), addAttribute(canonical, "content"), addAttribute(site.name, "content"), addAttribute(title, "content"), addAttribute(description, "content"), addAttribute(site.accent, "content"), schemas.length > 0 && renderTemplate(_a || (_a = __template(['<script type="application/ld+json">{JSON.stringify(schemas)}<\/script>']))), renderHead(), renderSlot($$result, $$slots["default"]));
-}, "C:/Git/Nat 2026/Clicom-site-2026/src/layouts/BaseLayout.astro", void 0);
+}, "C:/Git/Clicom-site-2026/src/layouts/BaseLayout.astro", void 0);
 
 const $$Astro = createAstro("https://clicom.ch");
 const $$Navbar = createComponent(($$result, $$props, $$slots) => {
@@ -93,12 +93,12 @@ const $$Navbar = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<header class="sticky top-0 z-40 border-b border-black/10 bg-white/95 backdrop-blur"> <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"> <a href="/" class="text-lg font-semibold text-ink"> <span class="text-accent">●</span> ${site.name} </a> <nav class="hidden gap-6 text-sm font-medium lg:flex" aria-label="Navigation principale"> ${navigation.map((item) => renderTemplate`<a${addAttribute(item.href, "href")}${addAttribute(`focus-ring transition ${current === item.href ? "text-accent" : "text-ink hover:text-accent"}`, "class")}> ${item.label} </a>`)} </nav> <div class="hidden items-center gap-2 lg:flex"> ${locales.map((locale) => renderTemplate`<a class="focus-ring rounded-full border border-black/10 px-3 py-1 text-xs"${addAttribute(locale.href, "href")}${addAttribute(`Version ${locale.label}`, "aria-label")}> ${locale.label} </a>`)} </div> <a href="/contact/" class="focus-ring rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white lg:hidden" aria-label="Demander un devis">
 Devis
 </a> </div> <div class="border-t border-black/10 lg:hidden"> <div class="mx-auto flex max-w-6xl flex-wrap gap-4 px-6 py-3 text-sm"> ${navigation.map((item) => renderTemplate`<a${addAttribute(item.href, "href")}${addAttribute(`focus-ring ${current === item.href ? "text-accent" : "text-ink"}`, "class")}> ${item.label} </a>`)} </div> </div> </header>`;
-}, "C:/Git/Nat 2026/Clicom-site-2026/src/components/Navbar.astro", void 0);
+}, "C:/Git/Clicom-site-2026/src/components/Navbar.astro", void 0);
 
 const $$Footer = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<footer class="border-t border-black/10 bg-white"> <div class="mx-auto grid max-w-6xl gap-8 px-6 py-12 lg:grid-cols-[2fr,1fr,1fr]"> <div class="space-y-3"> <p class="text-lg font-semibold text-ink">${site.name}</p> <p class="text-sm text-black/70">${site.slogan}</p> <div class="text-sm text-black/70"> <p>Email : <a class="text-accent underline"${addAttribute(`mailto:${site.email}`, "href")}>${site.email}</a></p> <p>Téléphone : <a class="text-accent underline"${addAttribute(`tel:${site.phone.replace(/\s+/g, "")}`, "href")}>${site.phone}</a></p> <p>Site : <a class="text-accent underline"${addAttribute(site.url, "href")}>${site.url}</a></p> </div> </div> <div class="space-y-2 text-sm"> <p class="font-semibold">Liens utiles</p> <ul class="space-y-1"> <li><a class="focus-ring hover:text-accent" href="/services/">Services</a></li> <li><a class="focus-ring hover:text-accent" href="/realisations/">Réalisations</a></li> <li><a class="focus-ring hover:text-accent" href="/blog/">Blog</a></li> <li><a class="focus-ring hover:text-accent" href="/contact/">Contact</a></li> </ul> </div> <div class="space-y-2 text-sm"> <p class="font-semibold">Légal</p> <ul class="space-y-1"> <li><a class="focus-ring hover:text-accent" href="/mentions-legales/">Mentions légales</a></li> <li><a class="focus-ring hover:text-accent" href="/politique-confidentialite/">Politique de confidentialité</a></li> <li><a class="focus-ring hover:text-accent" href="/cookies/">Cookies</a></li> </ul> </div> </div> <div class="border-t border-black/10 px-6 py-4 text-center text-xs text-black/60">
 © ${(/* @__PURE__ */ new Date()).getFullYear()} ${site.name}. Tous droits réservés.
 </div> </footer>`;
-}, "C:/Git/Nat 2026/Clicom-site-2026/src/components/Footer.astro", void 0);
+}, "C:/Git/Clicom-site-2026/src/components/Footer.astro", void 0);
 
 export { $$BaseLayout as $, $$Navbar as a, $$Footer as b };

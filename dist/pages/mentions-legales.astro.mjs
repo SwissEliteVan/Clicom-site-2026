@@ -1,7 +1,7 @@
 /* empty css                                   */
 import { c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead, b as addAttribute } from '../chunks/astro/server_PoaPgSBg.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout, a as $$Navbar, b as $$Footer } from '../chunks/Footer_BtfnHVVJ.mjs';
+import { $ as $$BaseLayout, a as $$Navbar, b as $$Footer } from '../chunks/Footer_WL_g8g0y.mjs';
 import { s as site } from '../chunks/site_Csd5TUrh.mjs';
 export { renderers } from '../renderers.mjs';
 
@@ -12,9 +12,9 @@ const $$MentionsLegales = createComponent(($$result, $$props, $$slots) => {
   ] }, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "Navbar", $$Navbar, { "current": "/mentions-legales/" })} ${maybeRenderHead()}<main class="mx-auto max-w-4xl px-6 py-16"> <h1 class="text-4xl font-semibold text-ink">Mentions légales</h1> <section class="mt-6 space-y-4 text-sm text-black/70"> <p><strong>Éditeur :</strong> ${site.name}</p> <p><strong>Activité :</strong> Agence marketing & web orientée résultats.</p> <p><strong>Email :</strong> <a class="text-accent underline"${addAttribute(`mailto:${site.email}`, "href")}>${site.email}</a></p> <p><strong>Téléphone :</strong> <a class="text-accent underline"${addAttribute(`tel:${site.phone.replace(/\s+/g, "")}`, "href")}>${site.phone}</a></p> <p><strong>Pays :</strong> Suisse</p> <p>
 Aucun numéro d'IDE/TVA ou adresse postale n'est publié à ce stade.
 </p> </section> </main> ${renderComponent($$result2, "Footer", $$Footer, {})} ` })}`;
-}, "C:/Git/Nat 2026/Clicom-site-2026/src/pages/mentions-legales.astro", void 0);
+}, "C:/Git/Clicom-site-2026/src/pages/mentions-legales.astro", void 0);
 
-const $$file = "C:/Git/Nat 2026/Clicom-site-2026/src/pages/mentions-legales.astro";
+const $$file = "C:/Git/Clicom-site-2026/src/pages/mentions-legales.astro";
 const $$url = "/mentions-legales";
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({

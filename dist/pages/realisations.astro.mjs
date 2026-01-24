@@ -1,7 +1,7 @@
 /* empty css                                   */
 import { c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead, b as addAttribute } from '../chunks/astro/server_PoaPgSBg.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout, a as $$Navbar, b as $$Footer } from '../chunks/Footer_BtfnHVVJ.mjs';
+import { $ as $$BaseLayout, a as $$Navbar, b as $$Footer } from '../chunks/Footer_WL_g8g0y.mjs';
 import { r as realisations } from '../chunks/realisations_o6tNqV5G.mjs';
 export { renderers } from '../renderers.mjs';
 
@@ -12,9 +12,9 @@ Projets exemples et missions réalisées. Chaque fiche présente l'objectif, la
 </p> </div> <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3"> ${realisations.map((project) => renderTemplate`<article class="rounded-3xl border border-black/10 bg-white p-6 shadow-soft"> <p class="text-xs font-semibold uppercase text-accent">${project.label} · exemple</p> <h2 class="mt-2 text-lg font-semibold text-ink">${project.title}</h2> <p class="mt-3 text-sm text-black/70">${project.goal}</p> <a class="mt-4 inline-flex text-sm font-semibold text-accent"${addAttribute(`/realisations/${project.slug}/`, "href")}>
 Découvrir →
 </a> </article>`)} </div> </main> ${renderComponent($$result2, "Footer", $$Footer, {})} ` })}`;
-}, "C:/Git/Nat 2026/Clicom-site-2026/src/pages/realisations.astro", void 0);
+}, "C:/Git/Clicom-site-2026/src/pages/realisations.astro", void 0);
 
-const $$file = "C:/Git/Nat 2026/Clicom-site-2026/src/pages/realisations.astro";
+const $$file = "C:/Git/Clicom-site-2026/src/pages/realisations.astro";
 const $$url = "/realisations";
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({

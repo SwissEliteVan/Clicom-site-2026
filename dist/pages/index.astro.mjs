@@ -1,8 +1,8 @@
 /* empty css                                   */
 import { d as createAstro, c as createComponent, m as maybeRenderHead, a as renderTemplate, r as renderComponent, b as addAttribute } from '../chunks/astro/server_PoaPgSBg.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout, a as $$Navbar, b as $$Footer } from '../chunks/Footer_BtfnHVVJ.mjs';
-import { $ as $$CTAButton } from '../chunks/CTAButton_D0PwtIpl.mjs';
+import { $ as $$BaseLayout, a as $$Navbar, b as $$Footer } from '../chunks/Footer_WL_g8g0y.mjs';
+import { $ as $$CTAButton } from '../chunks/CTAButton_BQd-S80j.mjs';
 import 'clsx';
 import { r as realisations } from '../chunks/realisations_o6tNqV5G.mjs';
 import { s as site } from '../chunks/site_Csd5TUrh.mjs';
@@ -14,7 +14,7 @@ const $$FaqAccordion = createComponent(($$result, $$props, $$slots) => {
   Astro2.self = $$FaqAccordion;
   const { items } = Astro2.props;
   return renderTemplate`${maybeRenderHead()}<div class="space-y-4"> ${items.map((item) => renderTemplate`<details class="rounded-2xl border border-black/10 px-5 py-4"> <summary class="cursor-pointer text-sm font-semibold text-ink"> ${item.question} </summary> <p class="mt-3 text-sm text-black/70">${item.answer}</p> </details>`)} </div>`;
-}, "C:/Git/Nat 2026/Clicom-site-2026/src/components/FaqAccordion.astro", void 0);
+}, "C:/Git/Clicom-site-2026/src/components/FaqAccordion.astro", void 0);
 
 const $$Astro = createAstro("https://clicom.ch");
 const $$Index = createComponent(($$result, $$props, $$slots) => {
@@ -90,9 +90,9 @@ Un projet en tête ? Décrivez votre besoin, nous répondons rapidement avec un
 </p> <div class="mt-6 flex flex-col gap-3"> ${renderComponent($$result2, "CTAButton", $$CTAButton, { "href": "/contact/", "label": "Parler \xE0 un expert" }, { "default": ($$result3) => renderTemplate`
 Demander un devis
 ` })} <a class="text-sm text-accent underline"${addAttribute(`mailto:${site.email}`, "href")}> ${site.email} </a> <a class="text-sm text-accent underline"${addAttribute(`tel:${site.phone.replace(/\s+/g, "")}`, "href")}> ${site.phone} </a> </div> </div> </div> </section> </main> ${renderComponent($$result2, "Footer", $$Footer, {})} ` })}`;
-}, "C:/Git/Nat 2026/Clicom-site-2026/src/pages/index.astro", void 0);
+}, "C:/Git/Clicom-site-2026/src/pages/index.astro", void 0);
 
-const $$file = "C:/Git/Nat 2026/Clicom-site-2026/src/pages/index.astro";
+const $$file = "C:/Git/Clicom-site-2026/src/pages/index.astro";
 const $$url = "";
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({

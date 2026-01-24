@@ -1,7 +1,7 @@
 /* empty css                                   */
 import { c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead, b as addAttribute } from '../chunks/astro/server_PoaPgSBg.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout, a as $$Navbar, b as $$Footer } from '../chunks/Footer_BtfnHVVJ.mjs';
+import { $ as $$BaseLayout, a as $$Navbar, b as $$Footer } from '../chunks/Footer_WL_g8g0y.mjs';
 import { s as site } from '../chunks/site_Csd5TUrh.mjs';
 export { renderers } from '../renderers.mjs';
 
@@ -29,9 +29,9 @@ Nous ne partageons pas vos données avec des tiers sauf obligation légale ou si
 Pour toute question relative à la protection des données, contactez-nous via
 <a class="text-accent underline"${addAttribute(`mailto:${site.email}`, "href")}>${site.email}</a>.
 </p> </section> </div> </main> ${renderComponent($$result2, "Footer", $$Footer, {})} ` })}`;
-}, "C:/Git/Nat 2026/Clicom-site-2026/src/pages/politique-confidentialite.astro", void 0);
+}, "C:/Git/Clicom-site-2026/src/pages/politique-confidentialite.astro", void 0);
 
-const $$file = "C:/Git/Nat 2026/Clicom-site-2026/src/pages/politique-confidentialite.astro";
+const $$file = "C:/Git/Clicom-site-2026/src/pages/politique-confidentialite.astro";
 const $$url = "/politique-confidentialite";
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
