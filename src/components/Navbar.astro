@@ -1,26 +1,40 @@
 ---
+/**
+ * Navbar - Tech Abstract Premium
+ * Swiss-style navigation with precision and clarity
+ */
+
 import { navigation, locales, site } from "../lib/site";
 const { current } = Astro.props;
 ---
-<header class="sticky top-0 z-40 border-b border-black/10 bg-white/95 backdrop-blur">
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-    <a href="/" class="text-lg font-semibold text-ink">
-      <span class="text-accent">●</span> {site.name}
+
+<header class="tech-navbar">
+  <div class="container-tech flex items-center justify-between py-4">
+    <!-- Logo -->
+    <a href="/" class="tech-logo" aria-label="Retour à l'accueil">
+      <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" class="tech-logo-dot" aria-hidden="true">
+        <circle cx="4" cy="4" r="4" />
+      </svg>
+      <span class="tech-logo-text">{site.name}</span>
     </a>
-    <nav class="hidden gap-6 text-sm font-medium lg:flex" aria-label="Navigation principale">
+
+    <!-- Desktop Navigation -->
+    <nav class="tech-nav-desktop" aria-label="Navigation principale">
       {navigation.map((item) => (
         <a
           href={item.href}
-          class={`focus-ring transition ${current === item.href ? "text-accent" : "text-ink hover:text-accent"}`}
+          class={`tech-nav-link ${current === item.href ? "tech-nav-link-active" : ""}`}
         >
           {item.label}
         </a>
       ))}
     </nav>
-    <div class="hidden items-center gap-2 lg:flex">
+
+    <!-- Language Switcher (Desktop) -->
+    <div class="tech-lang-switcher">
       {locales.map((locale) => (
         <a
-          class="focus-ring rounded-full border border-black/10 px-3 py-1 text-xs"
+          class="tech-lang-button"
           href={locale.href}
           aria-label={`Version ${locale.label}`}
         >
@@ -28,20 +42,24 @@ const { current } = Astro.props;
         </a>
       ))}
     </div>
+
+    <!-- CTA Mobile -->
     <a
       href="/contact/"
-      class="focus-ring rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white lg:hidden"
+      class="tech-cta-mobile"
       aria-label="Demander un devis"
     >
       Devis
     </a>
   </div>
-  <div class="border-t border-black/10 lg:hidden">
-    <div class="mx-auto flex max-w-6xl flex-wrap gap-4 px-6 py-3 text-sm">
+
+  <!-- Mobile Navigation -->
+  <div class="tech-nav-mobile-wrapper">
+    <div class="container-tech flex flex-wrap gap-4 py-3">
       {navigation.map((item) => (
         <a
           href={item.href}
-          class={`focus-ring ${current === item.href ? "text-accent" : "text-ink"}`}
+          class={`tech-nav-link-mobile ${current === item.href ? "tech-nav-link-mobile-active" : ""}`}
         >
           {item.label}
         </a>
@@ -49,3 +67,175 @@ const { current } = Astro.props;
     </div>
   </div>
 </header>
+
+<style>
+  /* Header */
+  .tech-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  /* Logo */
+  .tech-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .tech-logo-dot {
+    color: var(--accent-primary);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .tech-logo:hover .tech-logo-dot {
+    transform: scale(1.2);
+  }
+
+  /* Desktop Navigation */
+  .tech-nav-desktop {
+    display: none;
+    gap: 2rem;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  @media (min-width: 1024px) {
+    .tech-nav-desktop {
+      display: flex;
+    }
+  }
+
+  .tech-nav-link {
+    position: relative;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .tech-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-primary);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .tech-nav-link:hover {
+    color: var(--accent-primary);
+  }
+
+  .tech-nav-link:hover::after,
+  .tech-nav-link-active::after {
+    width: 100%;
+  }
+
+  .tech-nav-link-active {
+    color: var(--accent-primary);
+  }
+
+  /* Language Switcher */
+  .tech-lang-switcher {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .tech-lang-switcher {
+      display: flex;
+    }
+  }
+
+  .tech-lang-button {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .tech-lang-button:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    background: var(--accent-soft);
+  }
+
+  /* CTA Mobile */
+  .tech-cta-mobile {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-inverse);
+    background: var(--accent-primary);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .tech-cta-mobile:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  @media (min-width: 1024px) {
+    .tech-cta-mobile {
+      display: none;
+    }
+  }
+
+  /* Mobile Navigation */
+  .tech-nav-mobile-wrapper {
+    display: block;
+    border-top: 1px solid var(--border-color);
+  }
+
+  @media (min-width: 1024px) {
+    .tech-nav-mobile-wrapper {
+      display: none;
+    }
+  }
+
+  .tech-nav-link-mobile {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .tech-nav-link-mobile:hover,
+  .tech-nav-link-mobile-active {
+    color: var(--accent-primary);
+  }
+
+  /* Focus states */
+  .tech-logo:focus-visible,
+  .tech-nav-link:focus-visible,
+  .tech-lang-button:focus-visible,
+  .tech-cta-mobile:focus-visible,
+  .tech-nav-link-mobile:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+  }
+</style>

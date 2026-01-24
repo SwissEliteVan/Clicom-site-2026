@@ -1,36 +1,259 @@
 ---
+/**
+ * Footer - Tech Abstract Premium
+ * Minimalist Swiss-style footer with precision layout
+ */
+
 import { site } from "../lib/site";
+
+const currentYear = new Date().getFullYear();
 ---
-<footer class="border-t border-black/10 bg-white">
-  <div class="mx-auto grid max-w-6xl gap-8 px-6 py-12 lg:grid-cols-[2fr,1fr,1fr]">
-    <div class="space-y-3">
-      <p class="text-lg font-semibold text-ink">{site.name}</p>
-      <p class="text-sm text-black/70">{site.slogan}</p>
-      <div class="text-sm text-black/70">
-        <p>Email : <a class="text-accent underline" href={`mailto:${site.email}`}>{site.email}</a></p>
-        <p>Téléphone : <a class="text-accent underline" href={`tel:${site.phone.replace(/\s+/g, "")}`}>{site.phone}</a></p>
-        <p>Site : <a class="text-accent underline" href={site.url}>{site.url}</a></p>
+
+<footer class="tech-footer">
+  <div class="container-tech py-16">
+    <div class="tech-footer-grid">
+      <!-- Company Info -->
+      <div class="tech-footer-company">
+        <div class="tech-footer-brand">
+          <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" class="tech-footer-dot" aria-hidden="true">
+            <circle cx="4" cy="4" r="4" />
+          </svg>
+          <p class="tech-footer-name">{site.name}</p>
+        </div>
+        <p class="tech-footer-slogan">{site.slogan}</p>
+        <div class="tech-footer-contact">
+          <div class="tech-contact-item">
+            <span class="tech-contact-label">Email</span>
+            <a href={`mailto:${site.email}`} class="tech-contact-link">{site.email}</a>
+          </div>
+          <div class="tech-contact-item">
+            <span class="tech-contact-label">Téléphone</span>
+            <a href={`tel:${site.phone.replace(/\s+/g, "")}`} class="tech-contact-link">{site.phone}</a>
+          </div>
+          <div class="tech-contact-item">
+            <span class="tech-contact-label">Site</span>
+            <a href={site.url} class="tech-contact-link">{site.url}</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Useful Links -->
+      <div class="tech-footer-section">
+        <h3 class="tech-footer-title">Liens utiles</h3>
+        <ul class="tech-footer-list">
+          <li><a href="/services/" class="tech-footer-link">Services</a></li>
+          <li><a href="/realisations/" class="tech-footer-link">Réalisations</a></li>
+          <li><a href="/blog/" class="tech-footer-link">Blog</a></li>
+          <li><a href="/contact/" class="tech-footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div class="tech-footer-section">
+        <h3 class="tech-footer-title">Légal</h3>
+        <ul class="tech-footer-list">
+          <li><a href="/mentions-legales/" class="tech-footer-link">Mentions légales</a></li>
+          <li><a href="/politique-confidentialite/" class="tech-footer-link">Politique de confidentialité</a></li>
+          <li><a href="/cookies/" class="tech-footer-link">Cookies</a></li>
+        </ul>
       </div>
     </div>
-    <div class="space-y-2 text-sm">
-      <p class="font-semibold">Liens utiles</p>
-      <ul class="space-y-1">
-        <li><a class="focus-ring hover:text-accent" href="/services/">Services</a></li>
-        <li><a class="focus-ring hover:text-accent" href="/realisations/">Réalisations</a></li>
-        <li><a class="focus-ring hover:text-accent" href="/blog/">Blog</a></li>
-        <li><a class="focus-ring hover:text-accent" href="/contact/">Contact</a></li>
-      </ul>
-    </div>
-    <div class="space-y-2 text-sm">
-      <p class="font-semibold">Légal</p>
-      <ul class="space-y-1">
-        <li><a class="focus-ring hover:text-accent" href="/mentions-legales/">Mentions légales</a></li>
-        <li><a class="focus-ring hover:text-accent" href="/politique-confidentialite/">Politique de confidentialité</a></li>
-        <li><a class="focus-ring hover:text-accent" href="/cookies/">Cookies</a></li>
-      </ul>
-    </div>
   </div>
-  <div class="border-t border-black/10 px-6 py-4 text-center text-xs text-black/60">
-    © {new Date().getFullYear()} {site.name}. Tous droits réservés.
+
+  <!-- Copyright -->
+  <div class="tech-footer-bottom">
+    <div class="container-tech py-6">
+      <div class="tech-footer-copyright">
+        <span>© {currentYear} {site.name}. Tous droits réservés.</span>
+        <span class="tech-footer-separator" aria-hidden="true">·</span>
+        <span>Conçu en Suisse</span>
+      </div>
+    </div>
   </div>
 </footer>
+
+<style>
+  /* Footer Container */
+  .tech-footer {
+    position: relative;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+  }
+
+  /* Grid Layout */
+  .tech-footer-grid {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 1024px) {
+    .tech-footer-grid {
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+    }
+  }
+
+  /* Company Section */
+  .tech-footer-company {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .tech-footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .tech-footer-dot {
+    color: var(--accent-primary);
+  }
+
+  .tech-footer-name {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .tech-footer-slogan {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Contact Info */
+  .tech-footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .tech-contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .tech-contact-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .tech-contact-link {
+    font-size: 0.9375rem;
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    width: fit-content;
+  }
+
+  .tech-contact-link:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+  }
+
+  /* Footer Sections */
+  .tech-footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .tech-footer-title {
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .tech-footer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .tech-footer-link {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    width: fit-content;
+    position: relative;
+  }
+
+  .tech-footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent-primary);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .tech-footer-link:hover {
+    color: var(--accent-primary);
+  }
+
+  .tech-footer-link:hover::after {
+    width: 100%;
+  }
+
+  /* Footer Bottom */
+  .tech-footer-bottom {
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-primary);
+  }
+
+  .tech-footer-copyright {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    text-align: center;
+  }
+
+  .tech-footer-separator {
+    color: var(--border-strong);
+  }
+
+  /* Focus States */
+  .tech-contact-link:focus-visible,
+  .tech-footer-link:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+  }
+
+  /* Grid Pattern Background (Optional) */
+  .tech-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-image:
+      linear-gradient(var(--grid-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: -1px -1px;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+</style>
