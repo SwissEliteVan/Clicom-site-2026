@@ -7,6 +7,12 @@ const blog = defineCollection({
     description: z.string(),
     pubDate: z.string(),
     author: z.string(),
+    category: z.enum([
+      "visibilite",
+      "reseaux-sociaux",
+      "tendances-web",
+      "guides-pratiques"
+    ]).default("visibilite"),
   }),
 });
 

@@ -3,6 +3,7 @@ title: "SEO local en Suisse : ce qui marche vraiment"
 description: "Les actions concrètes qui améliorent votre visibilité locale sans promesses irréalistes."
 pubDate: "2024-02-05"
 author: "Clic COM"
+category: "visibilite"
 ---
 Le SEO local est une stratégie de proximité. En Suisse, la concurrence est forte : il
 faut prioriser les actions utiles, pas les effets de manche.
