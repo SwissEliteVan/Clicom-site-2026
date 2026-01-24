@@ -1,7 +1,7 @@
 /* empty css                                      */
 import { b as createAstro, c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead } from '../../chunks/astro/server_BbL4JxFn.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout, a as $$Navbar, b as $$Footer } from '../../chunks/Footer_D8jxgJpx.mjs';
+import { $ as $$BaseLayout, a as $$Navbar, b as $$Footer } from '../../chunks/Footer_h6LQB7Eu.mjs';
 import { r as realisations } from '../../chunks/realisations_o6tNqV5G.mjs';
 import { s as site } from '../../chunks/site_CV2KWidJ.mjs';
 export { renderers } from '../../renderers.mjs';
