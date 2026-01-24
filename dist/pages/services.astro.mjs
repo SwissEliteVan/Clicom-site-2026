@@ -1,8 +1,8 @@
 /* empty css                                   */
 import { c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead, d as addAttribute } from '../chunks/astro/server_BbL4JxFn.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout, a as $$Navbar, b as $$Footer } from '../chunks/Footer_Cu2PibUr.mjs';
-import { $ as $$CTAButton } from '../chunks/CTAButton_DKlGdm8N.mjs';
+import { $ as $$BaseLayout, a as $$Navbar, b as $$Footer } from '../chunks/Footer_D8jxgJpx.mjs';
+import { $ as $$CTAButton } from '../chunks/CTAButton_RvQ7QYcg.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Services = createComponent(($$result, $$props, $$slots) => {

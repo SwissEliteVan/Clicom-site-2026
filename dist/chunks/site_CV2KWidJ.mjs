@@ -3,9 +3,7 @@ const site = {
   slogan: "Le marketing qui fait vendre (pas juste briller).",
   url: "https://clicom.ch",
   email: "hello@clicom.ch",
-  phone: "+41 78 823 89 50",
-  accent: "#5B2EFF"
-};
+  phone: "+41 78 823 89 50"};
 const navigation = [
   { label: "Accueil", href: "/" },
   { label: "Services", href: "/services/" },
