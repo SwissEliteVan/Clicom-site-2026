@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./seo-local-suisse_CyBaqHMC.mjs');
+						return import('./vitesse-site-fait-vendre_km7uoN7A.mjs');
 					}
 					const collectedLinks = [];
 					const collectedStyles = [];

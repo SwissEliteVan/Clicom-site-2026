@@ -2,7 +2,7 @@ import { Traverse } from 'neotraverse/modern';
 import pLimit from 'p-limit';
 import { removeBase, prependForwardSlash } from '@astrojs/internal-helpers/path';
 import { i as isCoreRemotePath, V as VALID_INPUT_FORMATS } from './astro/assets-service_lzFWa4op.mjs';
-import { A as AstroError, U as UnknownContentCollectionError, c as createComponent, e as renderUniqueStylesheet, f as renderScriptElement, g as createHeadAndContent, r as renderComponent, a as renderTemplate, u as unescapeHTML } from './astro/server_PoaPgSBg.mjs';
+import { A as AstroError, U as UnknownContentCollectionError, c as createComponent, g as renderUniqueStylesheet, h as renderScriptElement, i as createHeadAndContent, r as renderComponent, a as renderTemplate, u as unescapeHTML } from './astro/server_BbL4JxFn.mjs';
 import 'kleur/colors';
 import * as devalue from 'devalue';
 
@@ -293,7 +293,7 @@ function isPropagatedAssetsModule(module) {
 
 const contentDir = '/src/content/';
 
-const contentEntryGlob = /* #__PURE__ */ Object.assign({"/src/content/blog/seo-local-suisse.md": () => import('./seo-local-suisse_Cf75jOEg.mjs'),"/src/content/blog/vitesse-site-fait-vendre.md": () => import('./vitesse-site-fait-vendre_BTntVLd1.mjs')});
+const contentEntryGlob = /* #__PURE__ */ Object.assign({"/src/content/blog/seo-local-suisse.md": () => import('./seo-local-suisse_CJV0Ae5O.mjs'),"/src/content/blog/vitesse-site-fait-vendre.md": () => import('./vitesse-site-fait-vendre_WboWjwQ0.mjs')});
 const contentCollectionToEntryMap = createCollectionToGlobResultMap({
 	globResult: contentEntryGlob,
 	contentDir,
@@ -310,7 +310,7 @@ createCollectionToGlobResultMap({
 });
 
 let lookupMap = {};
-lookupMap = {"blog":{"type":"content","entries":{"vitesse-site-fait-vendre":"/src/content/blog/vitesse-site-fait-vendre.md","seo-local-suisse":"/src/content/blog/seo-local-suisse.md"}}};
+lookupMap = {"blog":{"type":"content","entries":{"seo-local-suisse":"/src/content/blog/seo-local-suisse.md","vitesse-site-fait-vendre":"/src/content/blog/vitesse-site-fait-vendre.md"}}};
 
 new Set(Object.keys(lookupMap));
 
@@ -323,7 +323,7 @@ function createGlobLookup(glob) {
 	};
 }
 
-const renderEntryGlob = /* #__PURE__ */ Object.assign({"/src/content/blog/seo-local-suisse.md": () => import('./seo-local-suisse_CXLRq6jt.mjs'),"/src/content/blog/vitesse-site-fait-vendre.md": () => import('./vitesse-site-fait-vendre_orXd3w1l.mjs')});
+const renderEntryGlob = /* #__PURE__ */ Object.assign({"/src/content/blog/seo-local-suisse.md": () => import('./seo-local-suisse_q9NjXclv.mjs'),"/src/content/blog/vitesse-site-fait-vendre.md": () => import('./vitesse-site-fait-vendre_v90rm6_x.mjs')});
 const collectionToRenderEntryMap = createCollectionToGlobResultMap({
 	globResult: renderEntryGlob,
 	contentDir,

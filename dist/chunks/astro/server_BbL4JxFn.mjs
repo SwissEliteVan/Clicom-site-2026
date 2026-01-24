@@ -1617,4 +1617,4 @@ function renderUniqueStylesheet(result, sheet) {
 "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_".split("").reduce((v, c) => (v[c.charCodeAt(0)] = c, v), []);
 "-0123456789_".split("").reduce((v, c) => (v[c.charCodeAt(0)] = c, v), []);
 
-export { AstroError as A, NOOP_MIDDLEWARE_HEADER as N, UnknownContentCollectionError as U, renderTemplate as a, addAttribute as b, createComponent as c, createAstro as d, renderUniqueStylesheet as e, renderScriptElement as f, createHeadAndContent as g, renderSlot as h, renderHead as i, decodeKey as j, maybeRenderHead as m, renderComponent as r, unescapeHTML as u };
+export { AstroError as A, NOOP_MIDDLEWARE_HEADER as N, UnknownContentCollectionError as U, renderTemplate as a, createAstro as b, createComponent as c, addAttribute as d, renderSlot as e, renderHead as f, renderUniqueStylesheet as g, renderScriptElement as h, createHeadAndContent as i, decodeKey as j, maybeRenderHead as m, renderComponent as r, unescapeHTML as u };
