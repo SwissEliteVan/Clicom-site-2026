@@ -68,6 +68,12 @@ const schemas = [organizationSchema, websiteSchema, breadcrumbSchema, ...jsonLd]
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+
+    <!-- Google Fonts - Tech Abstract Premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
@@ -76,7 +82,7 @@ const schemas = [organizationSchema, websiteSchema, breadcrumbSchema, ...jsonLd]
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="theme-color" content={site.accent} />
+    <meta name="theme-color" content="#5B2EFF" />
     {schemas.length > 0 && (
       <script type="application/ld+json">{JSON.stringify(schemas)}</script>
     )}

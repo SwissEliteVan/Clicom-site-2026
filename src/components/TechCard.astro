@@ -1,0 +1,114 @@
+---
+/**
+ * TechCard - Composant de carte avec design Tech Abstract Premium
+ * Utilise des bordures fines et des ombres douces
+ */
+
+interface Props {
+  variant?: 'default' | 'elevated' | 'outlined' | 'glass';
+  padding?: 'sm' | 'md' | 'lg' | 'xl';
+  hover?: boolean;
+  class?: string;
+}
+
+const {
+  variant = 'default',
+  padding = 'md',
+  hover = true,
+  class: className = ''
+} = Astro.props;
+
+const paddingClasses = {
+  sm: 'p-4',
+  md: 'p-6',
+  lg: 'p-8',
+  xl: 'p-12'
+};
+
+const variantClasses = {
+  default: 'tech-card-default',
+  elevated: 'tech-card-elevated',
+  outlined: 'tech-card-outlined',
+  glass: 'tech-card-glass'
+};
+---
+
+<div class={`tech-card ${variantClasses[variant]} ${paddingClasses[padding]} ${hover ? 'tech-card-hover' : ''} ${className}`}>
+  <slot />
+</div>
+
+<style>
+  .tech-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Default variant */
+  .tech-card-default {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Elevated variant */
+  .tech-card-elevated {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Outlined variant */
+  .tech-card-outlined {
+    background: transparent;
+    border: 1.5px solid var(--border-strong);
+  }
+
+  /* Glass variant */
+  .tech-card-glass {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(91, 46, 255, 0.08);
+  }
+
+  /* Hover effects */
+  .tech-card-hover:hover {
+    border-color: var(--accent-border);
+    transform: translateY(-2px);
+  }
+
+  .tech-card-default.tech-card-hover:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .tech-card-elevated.tech-card-hover:hover {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .tech-card-outlined.tech-card-hover:hover {
+    border-color: var(--accent-primary);
+    background: var(--accent-soft);
+  }
+
+  /* Accent border on top (optional) */
+  .tech-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+      var(--accent-primary),
+      transparent
+    );
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .tech-card:hover::before {
+    opacity: 1;
+  }
+</style>
