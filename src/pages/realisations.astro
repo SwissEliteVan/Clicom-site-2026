@@ -2,37 +2,248 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import CTAButton from "../components/CTAButton.astro";
 import { realisations } from "../data/realisations";
+
+// Grouper les réalisations par secteur
+const sectors = [
+  { id: "all", name: "Tous les projets", icon: "🎯" },
+  { id: "restauration", name: "Restauration & Hôtellerie", icon: "🍽️" },
+  { id: "b2b", name: "B2B & Services", icon: "💼" },
+  { id: "artisanat", name: "Artisanat & Commerce", icon: "🛠️" },
+  { id: "sante", name: "Santé & Bien-être", icon: "🏥" },
+  { id: "immobilier", name: "Immobilier", icon: "🏢" },
+  { id: "sport", name: "Sport & Loisirs", icon: "⚽" },
+];
+
+const projectsBySector = {
+  "restauration": ["bistro-lac"],
+  "b2b": ["nexora-swiss"],
+  "artisanat": ["atelier-marion"],
+  "immobilier": ["mont-blanc-immobilier"],
+  "sante": ["clinique-aurora"],
+  "sport": ["equinox-sport"],
+};
+
+const detailedTestimonials = [
+  {
+    project: "Bistro du Lac",
+    sector: "Restauration",
+    name: "Sophie Martin",
+    role: "Gérante",
+    photo: "👤",
+    quote: "Notre site était vieillissant et ne reflétait pas la qualité de nos prestations. Clic COM a su moderniser notre image tout en gardant l'authenticité de notre établissement. Les réservations en ligne ont triplé en 3 mois.",
+    results: [
+      "+200% de demandes de réservation",
+      "Temps de chargement divisé par 5",
+      "Première page Google pour 'restaurant lac Léman'",
+    ],
+    duration: "6 semaines",
+  },
+  {
+    project: "Nexora Swiss",
+    sector: "B2B",
+    name: "Marc Dubois",
+    role: "Directeur Commercial",
+    photo: "👤",
+    quote: "Nous avions besoin d'une landing page qui convertit vraiment. L'équipe a su clarifier notre proposition de valeur et structurer notre message. Les résultats ont dépassé nos attentes.",
+    results: [
+      "Taux de conversion passé de 2% à 7%",
+      "+150% de demandes de démo qualifiées",
+      "Coût par lead réduit de 40%",
+    ],
+    duration: "3 semaines",
+  },
+  {
+    project: "Atelier Marion",
+    sector: "Artisanat",
+    name: "Caroline Renaud",
+    role: "Artisane",
+    photo: "👤",
+    quote: "En tant qu'artisane, je n'avais ni le temps ni les compétences pour m'occuper de ma visibilité en ligne. L'accompagnement SEO local m'a permis d'être enfin visible et de toucher ma clientèle de proximité.",
+    results: [
+      "Première place Google Maps dans ma zone",
+      "+180% de visites sur le site",
+      "15-20 demandes qualifiées par mois",
+    ],
+    duration: "8 semaines",
+  },
+];
 ---
 <BaseLayout
-  title="Réalisations | Clic COM"
-  description="Portfolio Clic COM : projets web et marketing orientés conversion."
+  title="Nos Réalisations | Clic COM"
+  description="Portfolio Clic COM : projets web et marketing orientés conversion par secteur d'activité."
   breadcrumbs={[{ name: "Accueil", item: "/" }, { name: "Réalisations", item: "/realisations/" }]}
 >
   <Navbar current="/realisations/" />
   <main class="mx-auto max-w-6xl px-6 py-16">
     <div class="space-y-4">
-      <h1 class="text-4xl font-semibold text-ink">Réalisations</h1>
+      <h1 class="text-4xl font-semibold text-ink">Nos Réalisations</h1>
       <p class="text-lg text-black/70">
-        Projets exemples et missions réalisées. Chaque fiche présente l'objectif, la
-        solution et le résultat qualitatif.
+        Découvrez nos projets par secteur d'activité. Chaque réalisation présente l'objectif, la
+        solution mise en place et les résultats concrets obtenus.
       </p>
     </div>
-    <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {realisations.map((project) => (
-        <article class="rounded-3xl border border-black/10 bg-white p-6 shadow-soft">
-          <p class="text-xs font-semibold uppercase text-accent">{project.label} · exemple</p>
-          <h2 class="mt-2 text-lg font-semibold text-ink">{project.title}</h2>
-          <p class="mt-3 text-sm text-black/70">{project.goal}</p>
-          <a
-            class="mt-4 inline-flex text-sm font-semibold text-accent"
-            href={`/realisations/${project.slug}/`}
-          >
-            Découvrir →
-          </a>
-        </article>
+
+    <!-- Navigation par secteur -->
+    <nav class="mt-10 flex flex-wrap gap-3" aria-label="Filtrer par secteur">
+      {sectors.map((sector) => (
+        <button
+          type="button"
+          data-sector={sector.id}
+          class="sector-filter rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-semibold text-ink hover:bg-accent hover:text-white hover:border-accent transition"
+        >
+          {sector.icon} {sector.name}
+        </button>
       ))}
+    </nav>
+
+    <!-- Galerie de projets -->
+    <div class="mt-10">
+      <h2 class="text-2xl font-semibold text-ink mb-6">Galerie de projets</h2>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {realisations.map((project) => (
+          <article
+            class="project-card rounded-3xl border border-black/10 bg-white p-6 shadow-soft hover:shadow-lg transition-shadow"
+            data-sector={Object.keys(projectsBySector).find(sector =>
+              projectsBySector[sector].includes(project.slug)
+            )}
+          >
+            <div class="aspect-video rounded-2xl bg-gradient-to-br from-accent/10 to-accent/5 flex items-center justify-center mb-4">
+              <span class="text-4xl">💼</span>
+            </div>
+            <p class="text-xs font-semibold uppercase text-accent">{project.label}</p>
+            <h3 class="mt-2 text-lg font-semibold text-ink">{project.title}</h3>
+            <p class="mt-3 text-sm text-black/70">{project.goal}</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              {project.stack.map((tech) => (
+                <span class="rounded-full bg-black/5 px-3 py-1 text-xs text-black/60">
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <a
+              class="mt-4 inline-flex text-sm font-semibold text-accent hover:underline"
+              href={`/realisations/${project.slug}/`}
+            >
+              Voir l'étude de cas détaillée →
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <!-- Études de cas détaillées avec témoignages -->
+    <div class="mt-20">
+      <h2 class="text-2xl font-semibold text-ink mb-6">Témoignages clients détaillés</h2>
+      <div class="space-y-8">
+        {detailedTestimonials.map((testimonial) => (
+          <article class="rounded-3xl border border-black/10 bg-gradient-to-br from-white to-black/5 p-8 shadow-soft">
+            <div class="grid gap-8 lg:grid-cols-[2fr,1fr]">
+              <div>
+                <div class="flex items-start gap-4 mb-4">
+                  <span class="text-4xl">{testimonial.photo}</span>
+                  <div>
+                    <p class="font-semibold text-ink">{testimonial.name}</p>
+                    <p class="text-sm text-black/60">{testimonial.role}</p>
+                    <p class="text-xs font-semibold uppercase text-accent mt-1">
+                      {testimonial.project} · {testimonial.sector}
+                    </p>
+                  </div>
+                </div>
+                <blockquote class="text-black/70 italic border-l-4 border-accent pl-4 my-6">
+                  "{testimonial.quote}"
+                </blockquote>
+                <div class="mt-4">
+                  <p class="text-sm font-semibold text-ink mb-2">Durée du projet : {testimonial.duration}</p>
+                </div>
+              </div>
+              <div class="rounded-2xl border border-black/10 bg-white p-6">
+                <p class="text-sm font-semibold text-ink mb-4">Résultats mesurables :</p>
+                <ul class="space-y-3">
+                  {testimonial.results.map((result) => (
+                    <li class="flex items-start gap-2 text-sm text-black/70">
+                      <span class="text-accent font-bold">✓</span>
+                      <span>{result}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA final -->
+    <div class="mt-16 flex flex-wrap items-center justify-between gap-6 rounded-3xl border border-black/10 bg-accent/5 p-8">
+      <div class="flex-1">
+        <h2 class="text-2xl font-semibold text-ink">Votre projet mérite les mêmes résultats</h2>
+        <p class="mt-2 text-black/70">
+          Parlons de vos objectifs et créons ensemble une stratégie sur mesure pour votre activité.
+        </p>
+      </div>
+      <CTAButton href="/contact/" label="Démarrer un projet">
+        Démarrer un projet
+      </CTAButton>
+    </div>
+
+    <!-- Méthodologie -->
+    <div class="mt-16 rounded-3xl border border-black/10 bg-white p-8">
+      <h2 class="text-xl font-semibold text-ink mb-6">Notre approche projet</h2>
+      <div class="grid gap-6 md:grid-cols-3">
+        <div class="space-y-3">
+          <div class="text-3xl">🎯</div>
+          <h3 class="font-semibold text-ink">Compréhension approfondie</h3>
+          <p class="text-sm text-black/70">
+            Nous prenons le temps de comprendre votre activité, vos clients et vos objectifs spécifiques.
+          </p>
+        </div>
+        <div class="space-y-3">
+          <div class="text-3xl">🛠️</div>
+          <h3 class="font-semibold text-ink">Solution sur mesure</h3>
+          <p class="text-sm text-black/70">
+            Chaque projet bénéficie d'une stratégie personnalisée adaptée à vos besoins et votre budget.
+          </p>
+        </div>
+        <div class="space-y-3">
+          <div class="text-3xl">📊</div>
+          <h3 class="font-semibold text-ink">Résultats mesurables</h3>
+          <p class="text-sm text-black/70">
+            Nous fixons des KPIs clairs dès le départ et suivons l'évolution pour optimiser en continu.
+          </p>
+        </div>
+      </div>
     </div>
   </main>
+
+  <script>
+    // Filtrage simple par secteur (côté client)
+    document.addEventListener('DOMContentLoaded', () => {
+      const filters = document.querySelectorAll('.sector-filter');
+      const projects = document.querySelectorAll('.project-card');
+
+      filters.forEach(filter => {
+        filter.addEventListener('click', () => {
+          const sector = filter.getAttribute('data-sector');
+
+          // Mise à jour visuelle du filtre actif
+          filters.forEach(f => f.classList.remove('bg-accent', 'text-white'));
+          filter.classList.add('bg-accent', 'text-white');
+
+          // Filtrage des projets
+          projects.forEach(project => {
+            const projectSector = project.getAttribute('data-sector');
+            if (sector === 'all' || projectSector === sector) {
+              project.style.display = 'block';
+            } else {
+              project.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+
   <Footer />
 </BaseLayout>

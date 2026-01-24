@@ -1,8 +1,9 @@
 ---
-title: "Pourquoi la vitesse d’un site fait vendre"
+title: "Pourquoi la vitesse d'un site fait vendre"
 description: "Comprendre l'impact direct de la vitesse sur la conversion et le SEO."
 pubDate: "2024-01-10"
 author: "Clic COM"
+category: "tendances-web"
 ---
 Un site rapide n'est pas un luxe : c'est un levier de conversion. Chaque seconde perdue
 réduit la confiance, augmente le taux de rebond et coûte des demandes entrantes.
