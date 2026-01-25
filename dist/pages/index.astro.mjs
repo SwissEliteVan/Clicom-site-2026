@@ -7,7 +7,7 @@ import 'clsx';
 /* empty css                                 */
 import { r as realisations } from '../chunks/realisations_o6tNqV5G.mjs';
 import { s as site } from '../chunks/site_CV2KWidJ.mjs';
-import { g as getCollection } from '../chunks/_astro_content_BAYglURB.mjs';
+import { g as getCollection } from '../chunks/_astro_content_CMUDcPNX.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Astro$3 = createAstro("https://clicom.ch");

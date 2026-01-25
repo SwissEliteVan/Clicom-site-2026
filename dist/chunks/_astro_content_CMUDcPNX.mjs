@@ -310,7 +310,7 @@ createCollectionToGlobResultMap({
 });
 
 let lookupMap = {};
-lookupMap = {"blog":{"type":"content","entries":{"vitesse-site-fait-vendre":"/src/content/blog/vitesse-site-fait-vendre.md","seo-local-suisse":"/src/content/blog/seo-local-suisse.md"}}};
+lookupMap = {"blog":{"type":"content","entries":{"seo-local-suisse":"/src/content/blog/seo-local-suisse.md","vitesse-site-fait-vendre":"/src/content/blog/vitesse-site-fait-vendre.md"}}};
 
 new Set(Object.keys(lookupMap));
 
