@@ -14,13 +14,13 @@ define('APP_DEBUG', true);
 
 // Base de données
 define('DB_HOST', 'localhost'); // Hostinger utilise généralement 'localhost'
-define('DB_NAME', 'u123456789_clicom'); // Remplacer par votre nom de base
-define('DB_USER', 'u123456789_admin'); // Remplacer par votre utilisateur
-define('DB_PASS', 'VotreMotDePasseSecurise123!'); // Remplacer par votre mot de passe
+define('DB_NAME', 'u929708752_ClicomCRM'); // Remplacer par votre nom de base
+define('DB_USER', 'u929708752_ClicMoh'); // Remplacer par votre utilisateur
+define('DB_PASS', '#fYi6LJa^#zF3W'); // Remplacer par votre mot de passe
 define('DB_CHARSET', 'utf8mb4');
 
 // Sécurité
-define('APP_SALT', 'CHANGEZ_CETTE_CLE_SECRETE_UNIQUE'); // Générez une clé aléatoire de 64+ caractères
+define('APP_SALT','fe8a1127e1ea2047dcd63560e907df9eff29e6f3b2a464d285459928fc47b748'); // Générez une clé aléatoire de 64+ caractères
 define('SESSION_LIFETIME', 7200); // 2 heures
 define('PORTAL_TOKEN_EXPIRY_DAYS', 30); // Durée validité token portail client
 
@@ -30,7 +30,7 @@ define('CRM_URL', BASE_URL . '/crm');
 define('API_URL', BASE_URL . '/api');
 
 // Email (Configuration SMTP Hostinger)
-define('SMTP_ENABLED', false); // Activer si vous voulez utiliser SMTP
+define('SMTP_ENABLED', true); // Activer si vous voulez utiliser SMTP
 define('SMTP_HOST', 'smtp.hostinger.com');
 define('SMTP_PORT', 587);
 define('SMTP_USER', 'contact@clicom.ch');

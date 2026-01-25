@@ -537,3 +537,37 @@ strong { font-weight: 600; }
         padding: var(--space-xl) 0;
     }
 }
+
+/* AJOUTS POUR LA PAGE ACCUEIL */
+
+/* Grille de 4 colonnes pour les services */
+.grid-4 { 
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+}
+
+/* Espacements */
+.mb-lg { margin-bottom: 3rem; }
+.mt-lg { margin-top: 3rem; }
+.text-muted { color: var(--gray); font-size: 1.1rem; }
+
+/* Cartes Services */
+.card-title { font-size: 1.25rem; margin-bottom: 0.5rem; }
+.card-text { font-size: 0.95rem; color: #475569; }
+
+/* Boutons secondaires */
+.btn-secondary {
+    background: white;
+    color: var(--dark);
+    border: 2px solid #E2E8F0;
+}
+.btn-secondary:hover {
+    border-color: var(--dark);
+    background: var(--light);
+}
+
+/* Animation d'apparition */
+.fade-in { animation: fadeIn 0.8s ease-out; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
