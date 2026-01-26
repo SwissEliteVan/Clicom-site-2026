@@ -1,7 +1,0 @@
-<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="600" fill="#F4F4F5"/>
-  <rect x="120" y="140" width="560" height="320" rx="24" fill="#E4E4E7"/>
-  <path d="M240 420L360 300L460 380L560 260L680 420" stroke="#5B2EFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="300" cy="260" r="32" fill="#5B2EFF"/>
-  <text x="400" y="520" text-anchor="middle" fill="#111111" font-family="Arial" font-size="20">Clic COM - Placeholder</text>
-</svg>
