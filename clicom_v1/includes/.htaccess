@@ -1,0 +1,3 @@
+# Bloquer l'accès direct au dossier /includes
+Order deny,allow
+Deny from all

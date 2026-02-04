@@ -14,8 +14,8 @@ define('APP_DEBUG', true);
 
 // Base de données
 define('DB_HOST', 'localhost'); // Hostinger utilise généralement 'localhost'
-define('DB_NAME', 'u929708752_ClicomCRM'); // Remplacer par votre nom de base
-define('DB_USER', 'u929708752_ClicMoh'); // Remplacer par votre utilisateur
+define('DB_NAME', 'u929708752_crmclic'); // Remplacer par votre nom de base
+define('DB_USER', 'u929708752_Chummy6372'); // Remplacer par votre utilisateur
 define('DB_PASS', '#fYi6LJa^#zF3W'); // Remplacer par votre mot de passe
 define('DB_CHARSET', 'utf8mb4');
 

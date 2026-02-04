@@ -22,7 +22,7 @@ try {
     $input = json_decode(file_get_contents('php://input'), true);
     
     // Validation
-    $required = ['name', 'email', 'subject', 'message'];
+    $required = ['name', 'email', 'subject', 'message', 'csrf_token'];
     foreach ($required as $field) {
         if (empty($input[$field])) {
             echo json_encode(['success' => false, 'message' => "Le champ $field est requis."]);
@@ -34,6 +34,23 @@ try {
         echo json_encode(['success' => false, 'message' => 'Email invalide.']);
         exit;
     }
+    
+    // Vérification CSRF
+    if (!csrf_verify($input['csrf_token'])) {
+        echo json_encode(['success' => false, 'message' => 'Token CSRF invalide.']);
+        exit;
+    }
+    
+    // Insertion dans la BDD
+    $db = getDB();
+    $stmt = $db->prepare("INSERT INTO contacts (name, email, phone, subject, message, created_at) VALUES (?, ?, ?, ?, ?, NOW())");
+    $stmt->execute([
+        clean($input['name']),
+        clean($input['email']),
+        clean($input['phone'] ?? ''),
+        clean($input['subject']),
+        clean($input['message'])
+    ]);
     
     // Envoyer l'email
     $to = SMTP_FROM_EMAIL;
