@@ -5,17 +5,17 @@ require_once __DIR__ . '/includes/admin_layout.php';
 
 // Récupérer toutes les factures avec les informations client
 $db = getDB();
-$stmt = $db->query("SELECT 
-    invoices.id, 
-    invoices.reference, 
-    invoices.total_ttc, 
-    invoices.date, 
-    invoices.due_date, 
+$stmt = $db->query("SELECT
+    invoices.id,
+    invoices.invoice_number,
+    invoices.total_amount,
+    invoices.issue_date,
+    invoices.due_date,
     invoices.status,
     clients.name AS client_name
 FROM invoices
 JOIN clients ON invoices.client_id = clients.id
-ORDER BY invoices.date DESC");
+ORDER BY invoices.issue_date DESC");
 $invoices = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Fonction pour générer le badge de statut
@@ -24,6 +24,8 @@ function getInvoiceStatusBadge($status, $dueDate) {
     
     if ($status === 'paid') {
         return '<span class="badge bg-success">Payée</span>';
+    } elseif ($status === 'overdue') {
+        return '<span class="badge bg-danger">En retard</span>';
     } elseif ($today > $dueDate) {
         return '<span class="badge bg-danger">En retard</span>';
     } else {
@@ -55,15 +57,15 @@ ob_start();
                 <tbody>
                     <?php foreach ($invoices as $invoice): ?>
                         <tr>
-                            <td><?= htmlspecialchars($invoice['reference']) ?></td>
+                            <td><?= htmlspecialchars($invoice['invoice_number']) ?></td>
                             <td><?= htmlspecialchars($invoice['client_name']) ?></td>
-                            <td><?= date('d.m.Y', strtotime($invoice['date'])) ?></td>
+                            <td><?= date('d.m.Y', strtotime($invoice['issue_date'])) ?></td>
                             <td><?= date('d.m.Y', strtotime($invoice['due_date'])) ?></td>
-                            <td><?= number_format($invoice['total_ttc'], 2) ?></td>
+                            <td><?= number_format($invoice['total_amount'], 2) ?></td>
                             <td><?= getInvoiceStatusBadge($invoice['status'], $invoice['due_date']) ?></td>
                             <td>
                                 <a href="view_invoice.php?token=<?= $invoice['token'] ?>" class="btn btn-sm btn-info" target="_blank">Voir</a>
-                                <?php if ($invoice['status'] === 'pending'): ?>
+                                <?php if ($invoice['status'] === 'sent' || $invoice['status'] === 'overdue'): ?>
                                     <a href="mark_paid.php?id=<?= $invoice['id'] ?>" class="btn btn-sm btn-success">Marquer Payée</a>
                                 <?php endif; ?>
                             </td>

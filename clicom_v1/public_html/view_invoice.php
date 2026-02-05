@@ -24,14 +24,24 @@ $clientStmt = $db->prepare("SELECT * FROM clients WHERE id = ?");
 $clientStmt->execute([$invoice['client_id']]);
 $client = $clientStmt->fetch(PDO::FETCH_ASSOC);
 
-// Calculer la TVA
-$tvaAmount = $invoice['total_ttc'] - $invoice['total_ht'];
+// Récupérer les items de la facture
+$itemsStmt = $db->prepare("SELECT * FROM invoice_items WHERE invoice_id = ?");
+$itemsStmt->execute([$invoice['id']]);
+$items = $itemsStmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Calculer le total
+$subtotal = 0;
+foreach ($items as $item) {
+    $subtotal += $item['total_price'];
+}
+$vatAmount = $subtotal * ($invoice['vat_rate'] / 100);
+$totalAmount = $subtotal + $vatAmount;
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Facture <?= $invoice['reference'] ?></title>
+    <title>Facture <?= $invoice['invoice_number'] ?></title>
     <style>
         body { font-family: Arial, sans-serif; margin: 40px; }
         .header { display: flex; justify-content: space-between; margin-bottom: 30px; }
@@ -48,7 +58,7 @@ $tvaAmount = $invoice['total_ttc'] - $invoice['total_ht'];
 <body>
     <div class="header">
         <img src="<?= BASE_URL ?>/assets/img/logo.png" alt="CLICOM Logo" class="logo">
-        <h1>Facture N° <?= $invoice['reference'] ?></h1>
+        <h1>Facture N° <?= $invoice['invoice_number'] ?></h1>
     </div>
 
     <div class="info-section">
@@ -76,23 +86,21 @@ $tvaAmount = $invoice['total_ttc'] - $invoice['total_ht'];
             </tr>
         </thead>
         <tbody>
-            <?php
-            $items = json_decode($invoice['items'], true);
-            foreach ($items as $item): ?>
+            <?php foreach ($items as $item): ?>
                 <tr>
-                    <td><?= htmlspecialchars($item['description']) ?></td>
+                    <td><?= htmlspecialchars($item['service_name']) ?></td>
                     <td><?= $item['quantity'] ?></td>
                     <td><?= number_format($item['unit_price'], 2) ?></td>
-                    <td><?= number_format($item['total'], 2) ?></td>
+                    <td><?= number_format($item['total_price'], 2) ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
 
     <div class="totals">
-        <p>Sous-total: CHF <?= number_format($invoice['total_ht'], 2) ?></p>
-        <p>TVA (<?= $invoice['tva_rate'] ?>%): CHF <?= number_format($tvaAmount, 2) ?></p>
-        <p><strong>Total TTC: CHF <?= number_format($invoice['total_ttc'], 2) ?></strong></p>
+        <p>Sous-total: CHF <?= number_format($subtotal, 2) ?></p>
+        <p>TVA (<?= $invoice['vat_rate'] ?>%): CHF <?= number_format($vatAmount, 2) ?></p>
+        <p><strong>Total TTC: CHF <?= number_format($totalAmount, 2) ?></strong></p>
     </div>
 
     <div class="footer">
