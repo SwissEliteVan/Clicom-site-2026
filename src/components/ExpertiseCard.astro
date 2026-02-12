@@ -1,0 +1,108 @@
+---
+/**
+ * ExpertiseCard Component
+ * Card component for expertise/service poles with hover effects
+ */
+
+export interface ExpertiseCardProps {
+  emoji: string;
+  title: string;
+  description: string;
+  poleNumber: number;
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+const {
+  emoji,
+  title,
+  description,
+  poleNumber,
+  ctaText = "Demander un devis",
+  ctaLink = "/contact/",
+} = Astro.props;
+---
+
+<article
+  class="expertise-card group relative overflow-hidden rounded-[var(--radius-xl)] tech-border bg-[var(--bg-elevated)] p-8 transition-all duration-300 hover:shadow-[var(--shadow-lg)] hover:scale-[1.02]"
+  itemscope
+  itemtype="https://schema.org/Service"
+>
+  <!-- Gradient overlay on hover -->
+  <div class="absolute inset-0 tech-gradient-bg opacity-0 transition-opacity duration-300 group-hover:opacity-5"></div>
+
+  <!-- Content -->
+  <div class="relative z-10">
+    <!-- Pole number badge -->
+    <div class="mb-4 inline-flex items-center gap-2">
+      <span class="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--accent-soft)] text-xs font-bold text-[var(--accent-primary)]">
+        {poleNumber}
+      </span>
+      <span class="text-xs font-semibold uppercase tracking-wide text-[var(--text-tertiary)]">
+        Pôle d'expertise
+      </span>
+    </div>
+
+    <!-- Emoji icon -->
+    <div class="mb-4 text-5xl" role="img" aria-label={title}>
+      {emoji}
+    </div>
+
+    <!-- Title -->
+    <h3
+      class="mb-3 text-2xl font-semibold text-[var(--text-primary)] transition-colors group-hover:text-[var(--accent-primary)]"
+      itemprop="name"
+    >
+      {title}
+    </h3>
+
+    <!-- Description -->
+    <p class="mb-6 text-sm leading-relaxed text-[var(--text-secondary)]" itemprop="description">
+      {description}
+    </p>
+
+    <!-- CTA Button -->
+    <a
+      href={ctaLink}
+      class="group/cta inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-primary)] transition-all hover:gap-3"
+      itemprop="url"
+      aria-label={`${ctaText} pour ${title}`}
+    >
+      <span>{ctaText}</span>
+      <svg
+        class="transition-transform group-hover/cta:translate-x-1"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M5 12h14M12 5l7 7-7 7" />
+      </svg>
+    </a>
+
+    <!-- Provider info for schema -->
+    <meta itemprop="provider" content="CLICOM" />
+    <meta itemprop="serviceType" content={title} />
+  </div>
+
+  <!-- Corner accent -->
+  <div class="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-[var(--accent-primary)] opacity-5 blur-2xl transition-all duration-300 group-hover:opacity-10"></div>
+</article>
+
+<style>
+  .expertise-card {
+    background: linear-gradient(
+      135deg,
+      var(--bg-elevated) 0%,
+      var(--bg-primary) 100%
+    );
+  }
+
+  .expertise-card:hover {
+    border-color: var(--accent-border);
+  }
+</style>

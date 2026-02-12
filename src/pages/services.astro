@@ -1,265 +1,466 @@
 ---
+/**
+ * Services Page - 8 Expertise Poles
+ * Complete SEO optimization with Schema.org markup
+ */
+
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import CTAButton from "../components/CTAButton.astro";
+import ExpertiseCard from "../components/ExpertiseCard.astro";
+import TechBackground from "../components/TechBackground.astro";
+import TechCard from "../components/TechCard.astro";
+import { site } from "../lib/site";
 
-const services = [
+const expertisePoles = [
   {
-    id: "seo",
-    title: "Être mieux visible sur Google",
-    subtitle: "Optimisation pour les moteurs de recherche (SEO)",
-    description: "Améliorez votre positionnement naturel sur Google et attirez des visiteurs qualifiés sans publicité payante.",
-    icon: "🔍",
-    subsections: [
-      {
-        title: "Audit de visibilité gratuit",
-        description: "Analyse complète de votre présence en ligne pour identifier les opportunités d'amélioration et les points bloquants.",
-        benefits: [
-          "Analyse de votre positionnement actuel",
-          "Identification des opportunités",
-          "Recommandations personnalisées",
-          "Plan d'action priorisé",
-        ],
-      },
-      {
-        title: "Optimisation du contenu",
-        description: "Création et optimisation de contenus qui répondent aux recherches de vos clients potentiels.",
-        benefits: [
-          "Recherche de mots-clés pertinents",
-          "Rédaction SEO orientée conversion",
-          "Optimisation des pages existantes",
-          "Contenu local ciblé",
-        ],
-      },
-      {
-        title: "Amélioration technique du site",
-        description: "Optimisation technique pour un site rapide, bien structuré et apprécié par Google.",
-        benefits: [
-          "Vitesse de chargement optimisée",
-          "Structure technique propre",
-          "Compatibilité mobile parfaite",
-          "Optimisation Core Web Vitals",
-        ],
-      },
+    id: 1,
+    emoji: "🎯",
+    title: "Stratégie Digitale",
+    description: "Audit digital complet, positionnement & proposition de valeur, roadmap transformation digitale, analyse concurrentielle, KPIs et tableaux de bord",
+    features: [
+      "Audit digital complet",
+      "Positionnement & proposition de valeur",
+      "Roadmap transformation digitale",
+      "Analyse concurrentielle",
+      "KPIs et tableaux de bord",
     ],
+    benefits: "Définissez une stratégie claire et mesurable pour votre transformation digitale",
   },
   {
-    id: "sea",
-    title: "Publicités en ligne ciblées",
-    subtitle: "Campagnes publicitaires payantes (SEA)",
-    description: "Des campagnes publicitaires bien cadrées pour générer rapidement des leads qualifiés avec un budget maîtrisé.",
-    icon: "🎯",
-    subsections: [
-      {
-        title: "Campagnes Google Ads",
-        description: "Apparaissez en tête des résultats Google pour capter vos clients au moment où ils cherchent vos services.",
-        benefits: [
-          "Audit et restructuration de compte",
-          "Ciblage précis et performant",
-          "Optimisation continue du budget",
-          "Suivi des conversions détaillé",
-        ],
-      },
-      {
-        title: "Publicités sur les réseaux sociaux",
-        description: "Touchez votre audience sur Facebook, Instagram et LinkedIn avec des campagnes visuelles percutantes.",
-        benefits: [
-          "Stratégie de ciblage avancée",
-          "Création de visuels attractifs",
-          "Tests A/B systématiques",
-          "Reporting transparent",
-        ],
-      },
-      {
-        title: "Campagnes locales",
-        description: "Maximisez votre visibilité locale avec des campagnes géolocalisées sur Google Maps et les réseaux sociaux.",
-        benefits: [
-          "Ciblage géographique précis",
-          "Optimisation Google Business Profile",
-          "Publicités locales sur Maps",
-          "Suivi des visites en magasin",
-        ],
-      },
+    id: 2,
+    emoji: "💻",
+    title: "Développement Web",
+    description: "Sites vitrines sur mesure, e-commerce & plateformes, applications web (CRM, outils métier), maintenance & hébergement, performance & sécurité",
+    features: [
+      "Sites vitrines sur mesure",
+      "E-commerce & plateformes",
+      "Applications web (CRM, outils métier)",
+      "Maintenance & hébergement",
+      "Performance & sécurité",
     ],
+    benefits: "Des solutions web performantes et évolutives pour votre business",
   },
   {
-    id: "website",
-    title: "Création de site internet sur mesure",
-    subtitle: "Sites web performants et orientés conversion",
-    description: "Des sites rapides, modernes et optimisés pour transformer vos visiteurs en clients.",
-    icon: "💻",
-    subsections: [
-      {
-        title: "Sites vitrines",
-        description: "Un site élégant et professionnel qui présente votre activité et génère des demandes de contact.",
-        benefits: [
-          "Design moderne et sur mesure",
-          "Performance et vitesse optimales",
-          "SEO intégré dès la conception",
-          "Responsive parfait sur tous écrans",
-        ],
-      },
-      {
-        title: "Boutiques en ligne",
-        description: "Une boutique e-commerce complète pour vendre vos produits en ligne efficacement.",
-        benefits: [
-          "Tunnel de vente optimisé",
-          "Paiements sécurisés",
-          "Gestion de stock simplifiée",
-          "Intégration logistique",
-        ],
-      },
-      {
-        title: "Refonte de site existant",
-        description: "Modernisez votre site actuel pour améliorer performances, design et conversion.",
-        benefits: [
-          "Analyse de l'existant",
-          "Migration sans perte de SEO",
-          "Amélioration UX/UI",
-          "Performance technique accrue",
-        ],
-      },
+    id: 3,
+    emoji: "📈",
+    title: "Ads & Référencement",
+    description: "Google Ads (Search, Display, Shopping), Meta Ads (Facebook, Instagram), SEO technique & contenu, marketing automation, analytics & reporting",
+    features: [
+      "Google Ads (Search, Display, Shopping)",
+      "Meta Ads (Facebook, Instagram)",
+      "SEO technique & contenu",
+      "Marketing automation",
+      "Analytics & reporting",
     ],
+    benefits: "Maximisez votre visibilité et générez des leads qualifiés",
   },
   {
-    id: "social-media",
-    title: "Gestion de votre présence sur les réseaux sociaux",
-    subtitle: "Community management et stratégie social media",
-    description: "Développez et animez votre communauté sur les réseaux sociaux pour renforcer votre image de marque.",
-    icon: "📱",
-    subsections: [
-      {
-        title: "Stratégie de contenu",
-        description: "Un plan éditorial cohérent aligné sur vos objectifs business et les attentes de votre audience.",
-        benefits: [
-          "Audit de votre présence actuelle",
-          "Calendrier éditorial personnalisé",
-          "Ligne éditoriale définie",
-          "Objectifs mesurables",
-        ],
-      },
-      {
-        title: "Animation communautaire",
-        description: "Gestion quotidienne de vos réseaux pour créer de l'engagement et fidéliser votre audience.",
-        benefits: [
-          "Publication régulière",
-          "Réponses aux commentaires",
-          "Gestion de la réputation",
-          "Reporting mensuel",
-        ],
-      },
-      {
-        title: "Création graphique",
-        description: "Des visuels percutants et cohérents avec votre identité de marque pour maximiser l'impact.",
-        benefits: [
-          "Designs adaptés à chaque plateforme",
-          "Templates réutilisables",
-          "Vidéos courtes engageantes",
-          "Stories et Reels créatifs",
-        ],
-      },
+    id: 4,
+    emoji: "🎨",
+    title: "Studio Créatif",
+    description: "Identité visuelle & branding, design UI/UX, motion design & vidéo, photographie produit, supports print & digital",
+    features: [
+      "Identité visuelle & branding",
+      "Design UI/UX",
+      "Motion design & vidéo",
+      "Photographie produit",
+      "Supports print & digital",
     ],
+    benefits: "Créez une identité forte et cohérente sur tous vos supports",
+  },
+  {
+    id: 5,
+    emoji: "📱",
+    title: "Marketing d'Influence",
+    description: "Identification des créateurs pertinents, négociation & contrats, gestion de campagnes, suivi des performances, relations long-terme",
+    features: [
+      "Identification des créateurs pertinents",
+      "Négociation & contrats",
+      "Gestion de campagnes",
+      "Suivi des performances",
+      "Relations long-terme",
+    ],
+    benefits: "Amplifiez votre message grâce aux créateurs de contenu",
+  },
+  {
+    id: 6,
+    emoji: "🎉",
+    title: "Events & Activations",
+    description: "Organisation d'événements corporate, lancements produits, pop-ups & activations terrain, livestreams & webinaires, community management live",
+    features: [
+      "Organisation d'événements corporate",
+      "Lancements produits",
+      "Pop-ups & activations terrain",
+      "Livestreams & webinaires",
+      "Community management live",
+    ],
+    benefits: "Créez des expériences mémorables pour votre audience",
+  },
+  {
+    id: 7,
+    emoji: "👥",
+    title: "Programme Ambassadeurs",
+    description: "Recrutement d'ambassadeurs clients, plateforme de gestion, gamification & récompenses, UGC (contenus utilisateurs), advocacy & bouche-à-oreille",
+    features: [
+      "Recrutement d'ambassadeurs clients",
+      "Plateforme de gestion",
+      "Gamification & récompenses",
+      "UGC (contenus utilisateurs)",
+      "Advocacy & bouche-à-oreille",
+    ],
+    benefits: "Transformez vos clients en ambassadeurs de marque",
+  },
+  {
+    id: 8,
+    emoji: "🔍",
+    title: "Prospection B2B",
+    description: "Cold email & LinkedIn outreach, lead generation & qualification, CRM & automation, scripts de vente, suivi & reporting",
+    features: [
+      "Cold email & LinkedIn outreach",
+      "Lead generation & qualification",
+      "CRM & automation",
+      "Scripts de vente",
+      "Suivi & reporting",
+    ],
+    benefits: "Générez un flux constant de prospects qualifiés",
   },
 ];
+
+// Schema.org markup for SEO
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Digital Marketing & Web Development Services",
+  provider: {
+    "@type": "ProfessionalService",
+    name: site.name,
+    url: site.url,
+    telephone: site.phone,
+    email: site.email,
+    areaServed: {
+      "@type": "Country",
+      name: "Switzerland",
+    },
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Nos 8 Pôles d'Expertise",
+    itemListElement: expertisePoles.map((pole, index) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: pole.title,
+        description: pole.description,
+      },
+      position: index + 1,
+    })),
+  },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Quels services propose CLICOM ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "CLICOM propose 8 pôles d'expertise : Stratégie Digitale, Développement Web, Ads & Référencement, Studio Créatif, Marketing d'Influence, Events & Activations, Programme Ambassadeurs, et Prospection B2B.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Comment demander un devis ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Vous pouvez demander un devis personnalisé en cliquant sur le bouton 'Demander un devis' sur chaque pôle d'expertise ou via notre page de contact.",
+      },
+    },
+  ],
+};
 ---
+
 <BaseLayout
-  title="Nos Solutions | Clic COM"
-  description="Sites rapides, SEO local, publicités et automatisations pour convertir en Suisse."
-  breadcrumbs={[{ name: "Accueil", item: "/" }, { name: "Nos Solutions", item: "/services/" }]}
+  title="Nos 8 Pôles d'Expertise | Solutions Digitales Complètes | CLICOM"
+  description="Découvrez nos 8 pôles d'expertise pour votre transformation digitale : Stratégie Digitale, Développement Web, Ads & SEO, Studio Créatif, Influence, Events, Ambassadeurs, Prospection B2B."
+  canonical={`${site.url}/services/`}
+  breadcrumbs={[
+    { name: "Accueil", item: "/" },
+    { name: "Services", item: "/services/" },
+  ]}
+  jsonLd={[servicesSchema, faqSchema]}
 >
   <Navbar current="/services/" />
-  <main class="mx-auto max-w-6xl px-6 py-16">
-    <div class="space-y-4">
-      <h1 class="text-4xl font-semibold text-ink">Nos Solutions</h1>
-      <p class="text-lg text-black/70">
-        Des prestations ciblées pour développer votre activité en ligne, avec une exécution rapide et
-        mesurable. Chaque solution est conçue pour vous apporter des résultats concrets.
-      </p>
-    </div>
 
-    <nav class="mt-10 flex flex-wrap gap-3" aria-label="Navigation des solutions">
-      {services.map((service) => (
-        <a
-          href={`#${service.id}`}
-          class="rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-semibold text-ink hover:bg-accent hover:text-white hover:border-accent transition"
-        >
-          {service.icon} {service.title}
-        </a>
-      ))}
-    </nav>
-
-    <div class="mt-16 space-y-20">
-      {services.map((service) => (
-        <section id={service.id} class="scroll-mt-8">
-          <div class="rounded-3xl border border-black/10 bg-gradient-to-br from-white to-black/5 p-8 shadow-soft">
-            <div class="flex items-start gap-4">
-              <span class="text-4xl">{service.icon}</span>
-              <div class="flex-1">
-                <h2 class="text-3xl font-semibold text-ink">{service.title}</h2>
-                <p class="mt-1 text-sm font-medium text-accent">{service.subtitle}</p>
-                <p class="mt-3 text-black/70">{service.description}</p>
-              </div>
+  <main itemscope itemtype="https://schema.org/WebPage">
+    <!-- Hero Section -->
+    <TechBackground variant="radial">
+      <section class="section-spacing tech-border-b">
+        <div class="container-tech">
+          <header class="mx-auto max-w-4xl text-center">
+            <!-- Badge -->
+            <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--accent-border)] bg-[var(--accent-soft)] px-4 py-2">
+              <div class="h-1.5 w-1.5 rounded-full bg-[var(--accent-primary)] animate-pulse"></div>
+              <span class="text-sm font-semibold uppercase tracking-wide text-[var(--accent-primary)]">
+                8 Pôles d'Expertise
+              </span>
             </div>
 
-            <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {service.subsections.map((subsection) => (
-                <article class="rounded-2xl border border-black/10 bg-white p-6 shadow-soft">
-                  <h3 class="text-lg font-semibold text-ink">{subsection.title}</h3>
-                  <p class="mt-3 text-sm text-black/70">{subsection.description}</p>
-                  <div class="mt-4 border-t border-black/10 pt-4">
-                    <p class="text-xs font-semibold text-ink">Points clés :</p>
-                    <ul class="mt-2 space-y-2">
-                      {subsection.benefits.map((benefit) => (
-                        <li class="text-xs text-black/70">✓ {benefit}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </article>
+            <!-- Main heading -->
+            <h1 class="mb-6 text-balance" itemprop="headline">
+              Nos 8 Pôles d'Expertise
+            </h1>
+
+            <p class="mb-8 text-lg text-[var(--text-secondary)]" itemprop="description">
+              Solutions complètes pour votre transformation digitale. De la stratégie à l'exécution, nous couvrons tous les aspects de votre présence en ligne.
+            </p>
+
+            <!-- Quick nav -->
+            <nav aria-label="Navigation rapide vers les pôles d'expertise" class="flex flex-wrap justify-center gap-3">
+              {expertisePoles.map((pole) => (
+                <a
+                  href={`#pole-${pole.id}`}
+                  class="inline-flex items-center gap-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] px-4 py-2 text-sm font-medium text-[var(--text-primary)] transition-all hover:border-[var(--accent-primary)] hover:bg-[var(--accent-soft)] hover:text-[var(--accent-primary)]"
+                >
+                  <span>{pole.emoji}</span>
+                  <span>{pole.title}</span>
+                </a>
               ))}
+            </nav>
+          </header>
+        </div>
+      </section>
+    </TechBackground>
+
+    <!-- Expertise Poles Grid -->
+    <section class="section-spacing" aria-labelledby="expertise-heading">
+      <div class="container-tech">
+        <h2 id="expertise-heading" class="sr-only">Liste des pôles d'expertise</h2>
+
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {expertisePoles.map((pole) => (
+            <div id={`pole-${pole.id}`} class="scroll-mt-24">
+              <ExpertiseCard
+                emoji={pole.emoji}
+                title={pole.title}
+                description={pole.description}
+                poleNumber={pole.id}
+                ctaText="Demander un devis pour ce pôle"
+                ctaLink={`/contact/?service=${encodeURIComponent(pole.title)}`}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Detailed Poles Section -->
+    <TechBackground variant="grid">
+      <section class="section-spacing bg-[var(--bg-secondary)]" aria-labelledby="detailed-expertise">
+        <div class="container-tech">
+          <h2 id="detailed-expertise" class="mb-12 text-center">
+            Détails de nos services
+          </h2>
+
+          <div class="space-y-12">
+            {expertisePoles.map((pole) => (
+              <TechCard variant="elevated" padding="lg">
+                <div class="grid gap-8 lg:grid-cols-[auto,1fr]">
+                  <!-- Icon & Title -->
+                  <div class="flex flex-col items-center lg:items-start">
+                    <div class="mb-4 text-6xl" role="img" aria-label={pole.title}>
+                      {pole.emoji}
+                    </div>
+                    <div class="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-3 py-1">
+                      <span class="text-xs font-bold text-[var(--accent-primary)]">
+                        {pole.id}
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Content -->
+                  <div>
+                    <h3 class="mb-3 text-2xl font-semibold text-[var(--text-primary)]">
+                      {pole.title}
+                    </h3>
+
+                    <p class="mb-6 text-[var(--text-secondary)]">
+                      {pole.benefits}
+                    </p>
+
+                    <!-- Features list -->
+                    <div class="mb-6 rounded-[var(--radius-lg)] tech-border bg-[var(--bg-primary)] p-6">
+                      <h4 class="mb-4 text-sm font-semibold uppercase tracking-wide text-[var(--text-tertiary)]">
+                        Ce que nous proposons
+                      </h4>
+                      <ul class="grid gap-3 sm:grid-cols-2">
+                        {pole.features.map((feature) => (
+                          <li class="flex items-start gap-3">
+                            <svg
+                              class="mt-0.5 flex-shrink-0"
+                              width="20"
+                              height="20"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="var(--accent-primary)"
+                              stroke-width="2.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path d="M20 6L9 17l-5-5" />
+                            </svg>
+                            <span class="text-sm text-[var(--text-secondary)]">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <!-- CTA -->
+                    <CTAButton
+                      href={`/contact/?service=${encodeURIComponent(pole.title)}`}
+                      label={`Demander un devis pour ${pole.title}`}
+                    >
+                      Demander un devis pour ce pôle
+                    </CTAButton>
+
+                    <p class="mt-3 text-xs text-[var(--text-tertiary)]">
+                      Nous établissons une proposition sur mesure adaptée à vos besoins.
+                    </p>
+                  </div>
+                </div>
+              </TechCard>
+            ))}
+          </div>
+        </div>
+      </section>
+    </TechBackground>
+
+    <!-- Packages Section -->
+    <section class="section-spacing" aria-labelledby="packages-heading">
+      <div class="container-tech">
+        <TechCard variant="elevated" padding="lg" class="tech-gradient-bg">
+          <div class="mx-auto max-w-3xl text-center">
+            <h2 id="packages-heading" class="mb-4">
+              Besoin de plusieurs pôles ?
+            </h2>
+            <p class="mb-8 text-lg text-[var(--text-secondary)]">
+              Nous proposons des offres packagées pour maximiser votre ROI. Combinez plusieurs pôles d'expertise pour une transformation digitale complète.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+              <CTAButton href="/contact/?type=package" label="Voir nos tarifs packagés">
+                Voir nos tarifs →
+              </CTAButton>
+              <CTAButton
+                href="/contact/"
+                variant="secondary"
+                label="Demander un devis personnalisé"
+              >
+                Demander un devis personnalisé
+              </CTAButton>
             </div>
           </div>
-        </section>
-      ))}
-    </div>
-
-    <div class="mt-16 flex flex-wrap items-center justify-between gap-6 rounded-3xl border border-black/10 bg-accent/5 p-8">
-      <div class="flex-1">
-        <h2 class="text-2xl font-semibold text-ink">Besoin d'un plan sur mesure ?</h2>
-        <p class="mt-2 text-black/70">
-          Décrivez votre contexte, nous revenons avec un plan d'action concret et un devis transparent.
-        </p>
+        </TechCard>
       </div>
-      <CTAButton href="/contact/" label="Demander un devis">
-        Demander un devis
-      </CTAButton>
-    </div>
+    </section>
 
-    <div class="mt-16 rounded-3xl border border-black/10 bg-white p-8">
-      <h2 class="text-xl font-semibold text-ink">Notre méthode de travail</h2>
-      <div class="mt-6 grid gap-6 md:grid-cols-4">
-        <div class="space-y-2">
-          <div class="text-3xl font-bold text-accent">01</div>
-          <h3 class="font-semibold text-ink">Audit & Cadrage</h3>
-          <p class="text-sm text-black/70">Analyse de votre situation et définition des objectifs prioritaires.</p>
-        </div>
-        <div class="space-y-2">
-          <div class="text-3xl font-bold text-accent">02</div>
-          <h3 class="font-semibold text-ink">Proposition</h3>
-          <p class="text-sm text-black/70">Plan d'action détaillé avec devis transparent et délais réalistes.</p>
-        </div>
-        <div class="space-y-2">
-          <div class="text-3xl font-bold text-accent">03</div>
-          <h3 class="font-semibold text-ink">Exécution</h3>
-          <p class="text-sm text-black/70">Mise en œuvre rapide avec points d'étape réguliers et validations.</p>
-        </div>
-        <div class="space-y-2">
-          <div class="text-3xl font-bold text-accent">04</div>
-          <h3 class="font-semibold text-ink">Optimisation</h3>
-          <p class="text-sm text-black/70">Analyse des résultats et ajustements pour maximiser la performance.</p>
+    <!-- Trust Section -->
+    <section class="section-spacing bg-[var(--bg-secondary)]" aria-labelledby="trust-heading">
+      <div class="container-tech">
+        <div class="mx-auto max-w-4xl">
+          <h2 id="trust-heading" class="mb-12 text-center">
+            Pourquoi choisir CLICOM ?
+          </h2>
+
+          <div class="grid gap-6 md:grid-cols-3">
+            <TechCard hover>
+              <div class="mb-4 text-3xl">✓</div>
+              <h3 class="mb-3 text-lg font-semibold text-[var(--text-primary)]">
+                Expertise complète
+              </h3>
+              <p class="text-sm text-[var(--text-secondary)]">
+                8 pôles d'expertise sous un seul toit pour une cohérence maximale.
+              </p>
+            </TechCard>
+
+            <TechCard hover>
+              <div class="mb-4 text-3xl">🇨🇭</div>
+              <h3 class="mb-3 text-lg font-semibold text-[var(--text-primary)]">
+                Basé en Suisse
+              </h3>
+              <p class="text-sm text-[var(--text-secondary)]">
+                Agence digitale suisse spécialisée dans les solutions pour PME.
+              </p>
+            </TechCard>
+
+            <TechCard hover>
+              <div class="mb-4 text-3xl">📊</div>
+              <h3 class="mb-3 text-lg font-semibold text-[var(--text-primary)]">
+                Résultats mesurables
+              </h3>
+              <p class="text-sm text-[var(--text-secondary)]">
+                KPIs clairs et reporting transparent pour suivre votre ROI.
+              </p>
+            </TechCard>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section-spacing" aria-labelledby="final-cta">
+      <div class="container-tech">
+        <div class="mx-auto max-w-3xl text-center">
+          <h2 id="final-cta" class="mb-4">
+            Prêt à transformer votre présence digitale ?
+          </h2>
+          <p class="mb-8 text-lg text-[var(--text-secondary)]">
+            Contactez-nous pour discuter de votre projet et obtenir un devis personnalisé.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <CTAButton href="/contact/" label="Obtenir un devis">
+              Obtenir un devis →
+            </CTAButton>
+            <CTAButton
+              href={`tel:${site.phone.replace(/\s+/g, "")}`}
+              variant="secondary"
+              label={`Appeler CLICOM au ${site.phone}`}
+            >
+              📞 {site.phone}
+            </CTAButton>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
   <Footer />
 </BaseLayout>
+
+<style>
+  /* Tech Border Bottom */
+  .tech-border-b {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  /* Screen reader only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Smooth scroll offset for anchor links */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+</style>
